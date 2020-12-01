@@ -11,18 +11,18 @@
 - [ImageNet Checkpoint Preparation](https://github.com/dalgu90/resnet-18-tensorflow)
 
 ```script
-nohup python train.py \
+nohup python -m depth_from_video_in_the_wild.train \
 --data_dir /home/ubuntu/data/kitti_result_all_20200715 \
---checkpoint_dir=/home/ubuntu/data/kitti_experiment_checkpoint_20201201 \
+--checkpoint_dir=/home/ubuntu/data/kitti_experiment_checkpoint_20200716 \
 --imagenet_ckpt=/home/ubuntu/data/ResNet18/model.ckpt \
---train_steps=10000 &
+--train_steps=1000000 &
 
 ```
 
 ## Finetuning with the video taken in Saitama
 
 ```script
-nohup python train.py \
+nohup python -m depth_from_video_in_the_wild.train \
 --data_dir /home/ubuntu/Sayama/out \
 --checkpoint_dir=/home/ubuntu/data/kitti_experiment_checkpoint_20200716 \
 --imagenet_ckpt=/home/ubuntu/data/ResNet18/model.ckpt \
