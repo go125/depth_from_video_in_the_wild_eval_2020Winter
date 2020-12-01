@@ -1,7 +1,7 @@
 
 # depth_from_video_in_the_wild_eval
 
-[Original](https://github.com/google-research/google-research/tree/master/depth_from_video_in_the_wild).
+[Original](https://github.com/google-research/google-research/tree/master/depth_from_video_in_the_wild)
 
 # Example input
 
