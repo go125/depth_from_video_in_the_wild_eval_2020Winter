@@ -184,37 +184,6 @@ def get_line(file, start):
     file.close()
     return ret
 
-def crop(img, segimg, fx, fy, cx, cy):
-    # Perform center cropping, preserving 50% vertically.
-    middle_perc = 0.50
-    left = 1 - middle_perc
-    half = left / 2
-    a = img[int(img.shape[0] * (half)):int(img.shape[0] * (1 - half)), :]
-    aseg = segimg[int(segimg.shape[0] * (half)):int(segimg.shape[0] * (1 - half)), :]
-    cy /= (1 / middle_perc)
-
-    # Resize to match target height while preserving aspect ratio.
-    wdt = int((128 * a.shape[1] / a.shape[0]))
-    x_scaling = float(wdt) / a.shape[1]
-    y_scaling = 128.0 / a.shape[0]
-    b = cv2.resize(a, (wdt, 128))
-    bseg = cv2.resize(aseg, (wdt, 128))
-
-    # Adjust intrinsics.
-    fx *= x_scaling
-    fy *= y_scaling
-    cx *= x_scaling
-    cy *= y_scaling
-
-    # Perform center cropping horizontally.
-    remain = b.shape[1] - 416
-    cx /= (b.shape[1] / 416)
-    c = b[:, int(remain / 2):b.shape[1] - int(remain / 2)]
-    cseg = bseg[:, int(remain / 2):b.shape[1] - int(remain / 2)]
-
-    return c, cseg, fx, fy, cx, cy
-
-
 def run_all():
     global number_list, OUTPUT_DIR, TEMP_DIR
 
