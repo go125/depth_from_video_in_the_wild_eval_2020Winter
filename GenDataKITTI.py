@@ -1,36 +1,11 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[31]:
-
 
 import os
 import sys
-import random
-import math
-import numpy as np
 import skimage.io
-import matplotlib
-import matplotlib.pyplot as plt
 import numpy as np
-from xml.etree import ElementTree
-from xml.dom import minidom
-import collections
-import matplotlib as matplot
-import seaborn as sns
 import cv2
 import shutil
-from absl import app
-from absl import flags
-from absl import logging
 import glob
-import alignment
-from alignment import compute_overlap
-from alignment import align
-
-
-# In[32]:
-
 
 #video_path
 base_path = "/home/ubuntu/data/raw_data_KITTI/"
@@ -50,10 +25,6 @@ OUTPUT_DIR = "/home/ubuntu/data/kitti_result_all_20200513"
 #temp data dir
 TEMP_DIR="/home/ubuntu/data/train_data_example_all_20200513/"
 
-
-# In[33]:
-
-
 # Import Mask RCNN
 sys.path.append(ROOT_DIR)  # To find local version of the library
 from mrcnn import utils
@@ -62,8 +33,6 @@ from mrcnn import visualize
 # Import COCO config
 sys.path.append(os.path.join(ROOT_DIR, "samples/coco/"))  # To find local version
 import coco
-
-#get_ipython().run_line_magic('matplotlib', 'inline')
 
 # Directory to save logs and trained model
 MODEL_DIR = os.path.join(ROOT_DIR, "logs")
@@ -103,10 +72,6 @@ class_names = ['BG', 'person', 'bicycle', 'car', 'motorcycle', 'airplane',
                'keyboard', 'cell phone', 'microwave', 'oven', 'toaster',
                'sink', 'refrigerator', 'book', 'clock', 'vase', 'scissors',
                'teddy bear', 'hair drier', 'toothbrush']
-
-
-# In[34]:
-
 
 test_dirs=["2011_09_26_drive_0117",
 "2011_09_28_drive_0002",
@@ -347,20 +312,11 @@ def make_dataset():
         
         OUTPUT_TXT_FILE=TEMP_DIR+data_year+"_"+data_month+"_"+data_date+"/calib_cam_to_cam.txt"
         shutil.copyfile(INPUT_TXT_FILE, OUTPUT_TXT_FILE)
-    
-    
-    run_all(file_names)
+
+    run_all()
     TXT_RESULT_PATH=OUTPUT_DIR
     with open(TXT_RESULT_PATH+"/train.txt", mode='w') as f:
         f.write('\n'.join(number_list))
-        
-        
-        
-        
-        
-
-# In[35]:
-
 
 def make_dataset1(OUTPUT_DIR1,file_names,dataset,IMAGE_DIR,data_num):
     for i in range(0,len(file_names)):        
@@ -370,10 +326,6 @@ def make_dataset1(OUTPUT_DIR1,file_names,dataset,IMAGE_DIR,data_num):
         if not os.path.exists(OUTPUT_DIR1):
             os.makedirs(OUTPUT_DIR1)
         cv2.imwrite(OUTPUT_DIR1 + '/' + data_num + "_" + file_names[i] + '.jpg', img)
-
-
-# In[36]:
-
 
 def make_mask_images(OUTPUT_DIR2,file_names,dataset,IMAGE_DIR,data_num):
     for i in range(0,len(file_names)):   
@@ -401,10 +353,6 @@ def make_mask_images(OUTPUT_DIR2,file_names,dataset,IMAGE_DIR,data_num):
                 os.makedirs(OUTPUT_DIR2)
         cv2.imwrite(OUTPUT_DIR2 + '/' + data_num + "_" + file_names[i] + '.jpg',mask_img)
 
-
-# In[37]:
-
-
 def get_line(file, start):
     file = open(file, 'r')
     lines = file.readlines()
@@ -419,7 +367,6 @@ def get_line(file, start):
             break
     file.close()
     return ret
-
 
 def crop(img, segimg, fx, fy, cx, cy):
     # Perform center cropping, preserving 50% vertically.
@@ -451,11 +398,9 @@ def crop(img, segimg, fx, fy, cx, cy):
 
     return c, cseg, fx, fy, cx, cy
 
-def run_all(file_names):
+def run_all():
     global number_list,OUTPUT_DIR,TEMP_DIR
     ct = 0
-  
-  
     if not OUTPUT_DIR.endswith('/'):
         OUTPUT_DIR = OUTPUT_DIR + '/'
 
@@ -548,31 +493,4 @@ def run_all(file_names):
                     f.close()
                     ct+=1
 
-
-# In[38]:
-
-
 make_dataset()
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
