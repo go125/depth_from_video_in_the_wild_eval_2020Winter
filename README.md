@@ -25,31 +25,31 @@ Under Construction
 ## 1. Use StereoAVIToPNG.py
 
 ```
-python StereoAVIToPNG.py \
+nohup python StereoAVIToPNG.py \
 --path_avi /home/ubuntu/data/StereoVideo/V2-mv-20200716103312-ulrg.avi \
 --path_output_png /home/ubuntu/data/Sayama/all_video/video1top_png/ \
---option top
+--option top &
 ```
 
 ```
-python StereoAVIToPNG.py \
+nohup python StereoAVIToPNG.py \
 --path_avi /home/ubuntu/data/StereoVideo/V2-mv-20200716103312-ulrg.avi \
 --path_output_png /home/ubuntu/data/Sayama/all_video/video1middle_png/ \
---option middle
+--option middle &
 ```
 
 ```
-python StereoAVIToPNG.py \
+nohuo python StereoAVIToPNG.py \
 --path_avi /home/ubuntu/data/StereoVideo/V2-mv-20200716105152-ulrg.avi \
 --path_output_png /home/ubuntu/data/Sayama/all_video/video2top_png/ \
---option top
+--option top &
 ```
 
 ```
-python StereoAVIToPNG.py \
+nohup python StereoAVIToPNG.py \
 --path_avi /home/ubuntu/data/StereoVideo/V2-mv-20200716105152-ulrg.avi \
 --path_output_png /home/ubuntu/data/Sayama/all_video/video2middle_png/ \
---option middle
+--option middle &
 ```
 
 ## 2 Use CropPNG.py
