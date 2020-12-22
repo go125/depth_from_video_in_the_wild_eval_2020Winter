@@ -15,8 +15,7 @@ nohup python -m depth_from_video_in_the_wild.train \
 --data_dir /home/ubuntu/data/kitti_result_all_20200715 \
 --checkpoint_dir=/home/ubuntu/data/kitti_experiment_checkpoint_20201201 \
 --imagenet_ckpt=/home/ubuntu/data/ResNet18/model.ckpt \
---train_steps=10000
--- fps 1 &
+--train_steps=10000 &
 ```
 
 ## Finetuning with the video taken in Saitama
@@ -29,7 +28,8 @@ Under Construction
 nohup python StereoAVIToPNG.py \
 --path_avi /home/ubuntu/data/StereoVideo/V2-mv-20200716103312-ulrg.avi \
 --path_output_png /home/ubuntu/data/Sayama/all_video/video1top_png/ \
---option top &
+--option top \
+--fps 1 &
 ```
 
 ```
