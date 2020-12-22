@@ -30,7 +30,31 @@ nohup python -m depth_from_video_in_the_wild.train \
 --train_steps=10000 &
 ```
 
+## Inference Example (KITTI)
 
+```shell
+python inference_dfv.py \
+    --logtostderr \
+    --file_extension png \
+    --depth \
+    --egomotion false \
+    --input_list_file /home/ubuntu/data/raw_data_KITTI/test_files_eigen.txt \
+    --output_dir /home/ubuntu/data/result_20200717_14394/ \
+    --model_ckpt /home/ubuntu/data/kitti_experiment_checkpoint_20200716/model-14394
+```
+
+## Inference Example (KITTI_gray)
+
+```shell
+python inference_dfv.py \
+    --logtostderr \
+    --file_extension png \
+    --depth \
+    --egomotion false \
+    --input_list_file /home/ubuntu/data/raw_data_KITTI/test_files_eigen_gray.txt \
+    --output_dir /home/ubuntu/data/result_20200717_14394/ \
+    --model_ckpt /home/ubuntu/data/kitti_experiment_checkpoint_20200716/model-14394
+```
 
 ### Getting Abs Rel Error (KITTI)
 
@@ -125,10 +149,6 @@ python inference_dfv.py \
 
 ### Getting Abs Rel Error
 
-```shell
-python kitti_eval/eval_depth.py --kitti_dir=/home/ubuntu/data/raw_data_KITTI/ --pred_file=/home/ubuntu/data/result_20200716_273486/result.npy
-```
-
 ### After fine tuning
 
 ### Getting Predicted Depth
@@ -146,6 +166,3 @@ python inference_dfv.py \
 
 ### Getting Abs Rel Error
 
-```shell
-python kitti_eval/eval_depth.py --kitti_dir=/home/ubuntu/data/raw_data_KITTI/ --pred_file=/home/ubuntu/data/result_20200716_279296/result.npy
-```
