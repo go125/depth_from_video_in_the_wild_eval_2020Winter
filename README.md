@@ -5,10 +5,23 @@
 
 # Example input
 
-## Train example (KITTI)
+## Data Preparation
 
-- [Data Preparation](https://github.com/go125/PrepareDataForDFV)
 - [ImageNet Checkpoint Preparation](https://github.com/dalgu90/resnet-18-tensorflow)
+
+### Input example (KITTI)
+
+```script
+nohup python GenDataKITTI.py &
+```
+ 
+### Input example (KITTI_gray)
+
+```script
+nohup python GenDataKITTI_gray.py &
+```
+
+## Train example (KITTI)
 
 ```script
 nohup python -m depth_from_video_in_the_wild.train \
@@ -19,8 +32,6 @@ nohup python -m depth_from_video_in_the_wild.train \
 ```
 
 ## Finetuning with the video taken in Saitama
-
-Under Construction
 
 ## 1. Use StereoAVIToPNG.py
 
