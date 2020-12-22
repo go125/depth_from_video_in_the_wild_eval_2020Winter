@@ -44,7 +44,7 @@ def extract_frames(path_avi, path_output_png, option, fps):
                 cv2.imwrite(os.path.join(path_output_png, "frame_{:06d}.png".format(count)), frame)
                 count += 1
             if num % 300 == 0:
-                print("Checked "+str(num//30) + " sec video."
+                print("Checked "+str(num//30) + " sec video.")
         else:
             break
 
