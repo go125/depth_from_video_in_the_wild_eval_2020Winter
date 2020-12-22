@@ -153,6 +153,11 @@ python inference_dfv.py \
 python AbsRelError.py
 ```
 
+```
+python AbsRelError_NoScaleMatching.py
+```
+
+
 ### After fine tuning
 
 ### Getting Predicted Depth
@@ -172,4 +177,8 @@ python inference_dfv.py \
 
 ```
 python AbsRelError.py
+```
+
+```
+python AbsRelError_NoScaleMatching.py
 ```
