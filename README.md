@@ -20,9 +20,7 @@ nohup python -m depth_from_video_in_the_wild.train \
 
 ## Finetuning with the video taken in Saitama
 
-### Data Preparation
-
-### 1. Use StereoAVIToPNG.py
+## 1. Use StereoAVIToPNG.py
 
 ```
 python StereoAVIToPNG.py \
@@ -52,7 +50,7 @@ python StereoAVIToPNG.py \
 middle
 ```
 
-### 2 Use CropPNG.py
+## 2 Use CropPNG.py
 
 ```script
 nohup python CropPNG.py --base_path /home/ubuntu/data/Sayama/all_video/ \
@@ -62,7 +60,7 @@ nohup python CropPNG.py --base_path /home/ubuntu/data/Sayama/all_video/ \
 --TEMP_DIR /home/ubuntu/Sayama/tmpdir &
 ```
 
-### 3 Use MakeMask.py
+## 3 Use MakeMask.py
 "all video" dir should include only "video2top_png" dir.
 
 ```script
@@ -74,7 +72,7 @@ nohup python GenData_makeMask.py --base_path /home/ubuntu/Sayama/all_video/ \
 --TEMP_DIR /home/ubuntu/Sayama/tmpdir &
 ```
 
-### 4. Training
+## 4. Training
 
 ```script
 nohup python -m depth_from_video_in_the_wild.train \
