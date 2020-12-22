@@ -16,7 +16,7 @@ option = args.option
 def extract_frames(path_avi, path_output_png, option="None"):
     num = 0
     if not os.path.exists(path_output_png):
-        os.mkdir(path_output_png)
+        os.mkdirs(path_output_png)
 
     cap = cv2.VideoCapture(path_avi)
     count = 0
