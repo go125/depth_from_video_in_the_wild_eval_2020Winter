@@ -43,8 +43,8 @@ def extract_frames(path_avi, path_output_png, option, fps):
                     frame = frame[(height * 2):(height * 3), 0:width]
                 cv2.imwrite(os.path.join(path_output_png, "frame_{:06d}.png".format(count)), frame)
                 count += 1
-            if count % 100 == 0:
-                print(count)
+            if num % 3000 == 0:
+                print(num)
         else:
             break
 
