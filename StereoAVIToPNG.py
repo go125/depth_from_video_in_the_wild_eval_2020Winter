@@ -50,4 +50,4 @@ def extract_frames(path_avi, path_output_png, option, fps):
 
     cap.release()
 
-extract_frames(path_avi, path_output_png, option)
+extract_frames(path_avi, path_output_png, option, fps)
