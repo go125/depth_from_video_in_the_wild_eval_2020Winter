@@ -3,9 +3,8 @@
 
 [Original](https://github.com/google-research/google-research/tree/master/depth_from_video_in_the_wild)
 
-# Example input
 
-## Data Preparation
+## Data Preparation (KITTI)
 
 - [ImageNet Checkpoint Preparation](https://github.com/dalgu90/resnet-18-tensorflow)
 
@@ -40,28 +39,31 @@ nohup python StereoAVIToPNG.py \
 --path_avi /home/ubuntu/data/StereoVideo/V2-mv-20200716103312-ulrg.avi \
 --path_output_png /home/ubuntu/data/Sayama/all_video/video1top_png/ \
 --option top \
---fps 1 &
+--fps 10 &
 ```
 
 ```
 nohup python StereoAVIToPNG.py \
 --path_avi /home/ubuntu/data/StereoVideo/V2-mv-20200716103312-ulrg.avi \
 --path_output_png /home/ubuntu/data/Sayama/all_video/video1middle_png/ \
---option middle &
+--option middle \
+--fps 10 &
 ```
 
 ```
 nohuo python StereoAVIToPNG.py \
 --path_avi /home/ubuntu/data/StereoVideo/V2-mv-20200716105152-ulrg.avi \
 --path_output_png /home/ubuntu/data/Sayama/all_video/video2top_png/ \
---option top &
+--option top \
+--fps 10 &
 ```
 
 ```
 nohup python StereoAVIToPNG.py \
 --path_avi /home/ubuntu/data/StereoVideo/V2-mv-20200716105152-ulrg.avi \
 --path_output_png /home/ubuntu/data/Sayama/all_video/video2middle_png/ \
---option middle &
+--option middle \
+--fps 10 &
 ```
 
 ## 2 Use CropPNG.py
