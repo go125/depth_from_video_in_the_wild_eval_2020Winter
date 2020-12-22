@@ -149,6 +149,10 @@ python inference_dfv.py \
 
 ### Getting Abs Rel Error
 
+```
+python AbsRelError.py
+```
+
 ### After fine tuning
 
 ### Getting Predicted Depth
@@ -166,3 +170,6 @@ python inference_dfv.py \
 
 ### Getting Abs Rel Error
 
+```
+python AbsRelError.py
+```
