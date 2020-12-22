@@ -24,10 +24,10 @@ nohup python GenDataKITTI_gray.py &
 
 ```script
 nohup python -m depth_from_video_in_the_wild.train \
---data_dir /home/ubuntu/data/kitti_result_all_20200715 \
---checkpoint_dir=/home/ubuntu/data/kitti_experiment_checkpoint_20201201 \
+--data_dir /home/ubuntu/data/kitti_result_all_20201222 \
+--checkpoint_dir=/home/ubuntu/data/kitti_experiment_checkpoint_20201223 \
 --imagenet_ckpt=/home/ubuntu/data/ResNet18/model.ckpt \
---train_steps=10000 &
+--train_steps=1000000 &
 ```
 
 ## Inference Example (KITTI)
@@ -39,11 +39,13 @@ python inference_dfv.py \
     --depth \
     --egomotion false \
     --input_list_file /home/ubuntu/data/raw_data_KITTI/test_files_eigen.txt \
-    --output_dir /home/ubuntu/data/result_20200717_14394/ \
-    --model_ckpt /home/ubuntu/data/kitti_experiment_checkpoint_20200716/model-14394
+    --output_dir /home/ubuntu/data/result_20201223_14394/ \
+    --model_ckpt /home/ubuntu/data/kitti_experiment_checkpoint_20201223/model-14394
 ```
 
 ## Inference Example (KITTI_gray)
+
+test_files_eigen_gray.txtを探す必要がある
 
 ```shell
 python inference_dfv.py \
