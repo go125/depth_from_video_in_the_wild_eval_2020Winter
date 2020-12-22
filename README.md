@@ -5,7 +5,7 @@
 
 # Example input
 
-## Train example
+## Train example (KITTI)
 
 - [Data Preparation](https://github.com/go125/PrepareDataForDFV)
 - [ImageNet Checkpoint Preparation](https://github.com/dalgu90/resnet-18-tensorflow)
@@ -16,10 +16,24 @@ nohup python -m depth_from_video_in_the_wild.train \
 --checkpoint_dir=/home/ubuntu/data/kitti_experiment_checkpoint_20201201 \
 --imagenet_ckpt=/home/ubuntu/data/ResNet18/model.ckpt \
 --train_steps=10000 &
-
 ```
 
 ## Finetuning with the video taken in Saitama
+
+### Data Preparation
+
+### 1. Use StereoAVIToPNG.py
+
+```
+
+```
+
+
+
+
+
+
+### 4. Training
 
 ```script
 nohup python -m depth_from_video_in_the_wild.train \

@@ -1,6 +1,17 @@
 import cv2
 import os
+import argparse
 
+parser = argparse.ArgumentParser()
+parser.add_argument("--path_avi", help="video_path", type=str)
+parser.add_argument("--path_output_png", help="output png path", type=str)
+parser.add_argument("--option", help="top or middle or bottom", type=str)
+
+args = parser.parse_args()
+
+path_avi = args.path_avi
+path_output_png = args.path_output_png
+option = args.option
 
 def extract_frames(path_avi, path_output_png, option="None"):
     num = 0
@@ -34,3 +45,5 @@ def extract_frames(path_avi, path_output_png, option="None"):
             break
 
     cap.release()
+
+extract_frames(path_avi, path_output_png, option)
