@@ -21,9 +21,9 @@ SEQ_LENGTH = 3
 # result step size
 STEPSIZE = 1
 #result output dir
-OUTPUT_DIR = "/home/ubuntu/data/kitti_result_all_20200513"
+OUTPUT_DIR = "/home/ubuntu/data/kitti_result_all_20201222"
 #temp data dir
-TEMP_DIR="/home/ubuntu/data/train_data_example_all_20200513/"
+TEMP_DIR="/home/ubuntu/data/train_data_example_all_20201222/"
 
 # Import Mask RCNN
 sys.path.append(ROOT_DIR)  # To find local version of the library
