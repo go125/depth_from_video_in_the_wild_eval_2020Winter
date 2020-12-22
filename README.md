@@ -25,13 +25,54 @@ nohup python -m depth_from_video_in_the_wild.train \
 ### 1. Use StereoAVIToPNG.py
 
 ```
-
+python StereoAVIToPNG.py \
+/home/ubuntu/data/StereoVideo/V2-mv-20200716103312-ulrg.avi \
+/home/ubuntu/Sayama/video1top_png/ \
+top
 ```
 
+```
+python StereoAVIToPNG.py \
+/home/ubuntu/data/StereoVideo/V2-mv-20200716103312-ulrg.avi \
+/home/ubuntu/Sayama/video1middle_png/ \
+middle
+```
 
+```
+python StereoAVIToPNG.py \
+/home/ubuntu/data/StereoVideo/V2-mv-20200716105152-ulrg.avi \
+/home/ubuntu/Sayama/video2top_png/ \
+top
+```
 
+```
+python StereoAVIToPNG.py \
+/home/ubuntu/data/StereoVideo/V2-mv-20200716105152-ulrg.avi \
+/home/ubuntu/Sayama/video2middle_png/ \
+middle
+```
 
+## 2 Use CropPNG.py
 
+```script
+nohup python CropPNG.py --base_path /home/ubuntu/data/Sayama/all_video/ \
+--WIDTH 416 \
+--HEIGHT 128 \
+--OUTPUT_DIR /home/ubuntu/Sayama/out \
+--TEMP_DIR /home/ubuntu/Sayama/tmpdir &
+```
+
+## 3 Use MakeMask.py
+"all video" dir should include only "video2top_png" dir.
+
+```script
+nohup python GenData_makeMask.py --base_path /home/ubuntu/Sayama/all_video/ \
+--ROOT_DIR ../Mask_RCNN \
+--WIDTH 416 \
+--HEIGHT 128 \
+--OUTPUT_DIR /home/ubuntu/Sayama/out \
+--TEMP_DIR /home/ubuntu/Sayama/tmpdir &
+```
 
 ### 4. Training
 
