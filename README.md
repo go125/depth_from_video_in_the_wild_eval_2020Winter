@@ -28,7 +28,8 @@ Under Construction
 nohup python StereoAVIToPNG.py \
 --path_avi /home/ubuntu/data/StereoVideo/V2-mv-20200716103312-ulrg.avi \
 --path_output_png /home/ubuntu/data/Sayama/all_video/video1top_png/ \
---option top &
+--option top \
+--fps 1 &
 ```
 
 ```
