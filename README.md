@@ -26,30 +26,30 @@ Under Construction
 
 ```
 python StereoAVIToPNG.py \
-/home/ubuntu/data/StereoVideo/V2-mv-20200716103312-ulrg.avi \
-/home/ubuntu/data/Sayama/all_video/video1top_png/ \
-top
+--path_avi /home/ubuntu/data/StereoVideo/V2-mv-20200716103312-ulrg.avi \
+--path_output_png /home/ubuntu/data/Sayama/all_video/video1top_png/ \
+--option top
 ```
 
 ```
 python StereoAVIToPNG.py \
-/home/ubuntu/data/StereoVideo/V2-mv-20200716103312-ulrg.avi \
-/home/ubuntu/data/Sayama/all_video/video1middle_png/ \
-middle
+--path_avi /home/ubuntu/data/StereoVideo/V2-mv-20200716103312-ulrg.avi \
+--path_output_png /home/ubuntu/data/Sayama/all_video/video1middle_png/ \
+--option middle
 ```
 
 ```
 python StereoAVIToPNG.py \
-/home/ubuntu/data/StereoVideo/V2-mv-20200716105152-ulrg.avi \
-/home/ubuntu/data/Sayama/all_video/video2top_png/ \
-top
+--path_avi /home/ubuntu/data/StereoVideo/V2-mv-20200716105152-ulrg.avi \
+--path_output_png /home/ubuntu/data/Sayama/all_video/video2top_png/ \
+--option top
 ```
 
 ```
 python StereoAVIToPNG.py \
-/home/ubuntu/data/StereoVideo/V2-mv-20200716105152-ulrg.avi \
-/home/ubuntu/data/Sayama/all_video/video2middle_png/ \
-middle
+--path_avi /home/ubuntu/data/StereoVideo/V2-mv-20200716105152-ulrg.avi \
+--path_output_png /home/ubuntu/data/Sayama/all_video/video2middle_png/ \
+--option middle
 ```
 
 ## 2 Use CropPNG.py
