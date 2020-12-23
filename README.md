@@ -151,6 +151,8 @@ python inference_dfv.py \
 
 ### Getting Abs Rel Error
 
+以下2ファイルはステレオカメラ専用
+
 ```
 python AbsRelError.py
 ```
@@ -176,6 +178,8 @@ python inference_dfv.py \
 ```
 
 ### Getting Abs Rel Error
+
+以下2ファイルはステレオカメラ専用
 
 ```
 python AbsRelError.py
