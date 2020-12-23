@@ -111,8 +111,8 @@ nohup python CropPNG.py --base_path /home/ubuntu/data/Sayama/all_video/ \
 ```
 
 ## 3 Use MakeMask.py
-"all video" dir should include only "video2top_png" dir.
-("video2top_png"に対してのみトレーニング用のマスクを生成する)
+- "all video" dir should include only "video2top_png" dir.
+  - "video2top_png"に対してのみトレーニング用のマスクを生成
 
 ```script
 nohup python MakeMask.py --base_path /home/ubuntu/data/Sayama/all_video/ \
