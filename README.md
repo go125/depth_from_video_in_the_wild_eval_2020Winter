@@ -130,7 +130,7 @@ nohup python MakeMask.py --base_path /home/ubuntu/data/Sayama/all_video_training
 ```script
 nohup python -m depth_from_video_in_the_wild.train \
 --data_dir /home/ubuntu/data/Sayama/training_data \
---checkpoint_dir=/home/ubuntu/data/kitti_experiment_checkpoint_20200716 \
+--checkpoint_dir=/home/ubuntu/data/kitti_experiment_checkpoint_20201224 \
 --imagenet_ckpt=/home/ubuntu/data/ResNet18/model.ckpt \
 --train_steps=1000000 &
 ```
