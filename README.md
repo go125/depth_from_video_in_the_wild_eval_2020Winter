@@ -62,6 +62,10 @@ python inference_dfv.py \
 python kitti_eval/eval_depth.py --kitti_dir=/home/ubuntu/data/raw_data_KITTI/ --pred_file=/home/ubuntu/data/result_20201223_273486/result.npy
 ```
 
+- abs_rel,     sq_rel,        rms,    log_rms,     d1_all,         a1,         a2,         a3,     scalor 
+- 0.1374,     0.9873,     5.5315,     0.2212,     0.0000,     0.8166,     0.9388,     0.9754 ,   12.3922
+  - この出力は7月実行時と同じ結果である(このコードは過去のコードと等価)
+
 ## Finetuning with the video taken in Saitama
 
 ## 1. Use StereoAVIToPNG.py
@@ -109,16 +113,16 @@ nohup python CropPNG.py --base_path /home/ubuntu/data/Sayama/all_video/ \
 ```
 
 ## 3 Use MakeMask.py
-- "all video" dir should include only "video2top_png" dir.
+- "all video_training" dir should include only "video2top_png" dir.
   - "video2top_png"に対してのみトレーニング用のマスクを生成
 
 ```script
-nohup python MakeMask.py --base_path /home/ubuntu/data/Sayama/all_video/ \
+nohup python MakeMask.py --base_path /home/ubuntu/data/Sayama/all_video_training/ \
 --ROOT_DIR ../Mask_RCNN \
 --WIDTH 416 \
 --HEIGHT 128 \
---OUTPUT_DIR /home/ubuntu/data/Sayama/out \
---TEMP_DIR /home/ubuntu/data/Sayama/tmpdir &
+--OUTPUT_DIR /home/ubuntu/data/Sayama/training_data \
+--TEMP_DIR /home/ubuntu/data/Sayama/tmpdir_training &
 ```
 
 ## 4. Training
@@ -126,7 +130,7 @@ nohup python MakeMask.py --base_path /home/ubuntu/data/Sayama/all_video/ \
 ```script
 nohup python -m depth_from_video_in_the_wild.train \
 --data_dir /home/ubuntu/data/Sayama/training_data \
---checkpoint_dir=/home/ubuntu/data/kitti_experiment_checkpoint_20200716 \
+--checkpoint_dir=/home/ubuntu/data/kitti_experiment_checkpoint_20201224 \
 --imagenet_ckpt=/home/ubuntu/data/ResNet18/model.ckpt \
 --train_steps=1000000 &
 ```
@@ -151,6 +155,7 @@ python inference_dfv.py \
 ### Getting Abs Rel Error
 
 以下2ファイルはステレオカメラ専用
+引数の外部化を今後実施
 
 ```
 python AbsRelError.py
@@ -179,6 +184,7 @@ python inference_dfv.py \
 ### Getting Abs Rel Error
 
 以下2ファイルはステレオカメラ専用
+引数の外部化を今後実施
 
 ```
 python AbsRelError.py
@@ -191,3 +197,7 @@ python AbsRelError_NoScaleMatching.py
 ### Visualization
 
 今後既存ipynbを変換予定
+
+### Future
+
+測距まで実装したい
