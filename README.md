@@ -59,7 +59,7 @@ python inference_dfv.py \
 ### Getting Abs Rel Error (KITTI)
 
 ```shell
-python kitti_eval/eval_depth.py --kitti_dir=/home/ubuntu/data/raw_data_KITTI/ --pred_file=/home/ubuntu/data/result_20200716_273486/result.npy
+python kitti_eval/eval_depth.py --kitti_dir=/home/ubuntu/data/raw_data_KITTI/ --pred_file=/home/ubuntu/data/result_20201223_273486/result.npy
 ```
 
 ## Finetuning with the video taken in Saitama
