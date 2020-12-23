@@ -113,16 +113,16 @@ nohup python CropPNG.py --base_path /home/ubuntu/data/Sayama/all_video/ \
 ```
 
 ## 3 Use MakeMask.py
-- "all video" dir should include only "video2top_png" dir.
+- "all video_training" dir should include only "video2top_png" dir.
   - "video2top_png"に対してのみトレーニング用のマスクを生成
 
 ```script
-nohup python MakeMask.py --base_path /home/ubuntu/data/Sayama/all_video/ \
+nohup python MakeMask.py --base_path /home/ubuntu/data/Sayama/all_video_training/ \
 --ROOT_DIR ../Mask_RCNN \
 --WIDTH 416 \
 --HEIGHT 128 \
---OUTPUT_DIR /home/ubuntu/data/Sayama/out \
---TEMP_DIR /home/ubuntu/data/Sayama/tmpdir &
+--OUTPUT_DIR /home/ubuntu/data/Sayama/training_data \
+--TEMP_DIR /home/ubuntu/data/Sayama/tmpdir_training &
 ```
 
 ## 4. Training
@@ -155,6 +155,7 @@ python inference_dfv.py \
 ### Getting Abs Rel Error
 
 以下2ファイルはステレオカメラ専用
+引数の外部化を今後実施
 
 ```
 python AbsRelError.py
@@ -183,6 +184,7 @@ python inference_dfv.py \
 ### Getting Abs Rel Error
 
 以下2ファイルはステレオカメラ専用
+引数の外部化を今後実施
 
 ```
 python AbsRelError.py
