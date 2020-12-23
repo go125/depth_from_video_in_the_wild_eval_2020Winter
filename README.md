@@ -190,4 +190,4 @@ python AbsRelError_NoScaleMatching.py
 
 ### Visualization
 
-今後ipynbを変換予定
+今後既存ipynbを変換予定
