@@ -18,17 +18,17 @@ import pickle
 
 
 #Raw images
-save_path = '/home/ubuntu/Sayama/tmpdir/2020_08_04/video1top_png/image_02/data/'
+save_path = '/home/ubuntu/data/Sayama/tmpdir/2020_08_04/video1top_png/image_02/data/'
 
 #Mask images (These files may be used for the better evaluation in the future)
 #mask_path= = '/home/ubuntu/Sayama/tmpdir/2020_08_04/video1top_png/image_03/data/'
 
 #Depth maps (273486 = Before Fine Tuning, 279296 = After Fine Tuning)
-#depth_map_dir='/home/ubuntu/Sayama/result_video1top_273486/'
-depth_map_dir='/home/ubuntu/Sayama/result_video1top_279296/'
+depth_map_dir='/home/ubuntu/Sayama/result_video1top_273486/'
+#depth_map_dir='/home/ubuntu/Sayama/result_video1top_279296/'
 
 #Disparity map
-ans_int_disp_map_dir="/home/ubuntu/Sayama/tmpdir/2020_08_04/video1middle_png/image_02/data"
+ans_int_disp_map_dir="/home/ubuntu/data/Sayama/tmpdir/2020_08_04/video1middle_png/image_02/data"
 
 #Abs Rel Error Calculation Settings
 min_depth=5
