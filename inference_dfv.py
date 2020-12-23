@@ -40,7 +40,6 @@ from depth_from_video_in_the_wild import model
 import numpy as np
 import fnmatch
 import tensorflow as tf
-from struct2depth import nets
 from struct2depth import util
 
 gfile = tf.gfile
@@ -82,10 +81,6 @@ flags.DEFINE_integer('batch_size', 1, 'The size of a sample batch')
 flags.DEFINE_integer('img_height', 128, 'Input frame height.')
 flags.DEFINE_integer('img_width', 416, 'Input frame width.')
 flags.DEFINE_integer('seq_length', 3, 'Number of frames in sequence.')
-flags.DEFINE_enum('architecture', nets.RESNET, nets.ARCHITECTURES,
-                  'Defines the architecture to use for the depth prediction '
-                  'network. Defaults to ResNet-based encoder and accompanying '
-                  'decoder.')
 flags.DEFINE_boolean('imagenet_norm', True, 'Whether to normalize the input '
                      'images channel-wise so that they match the distribution '
                      'most ImageNet-models were trained on.')
@@ -135,7 +130,6 @@ def _run_inference(output_dir=None,
                    img_height=128,
                    img_width=416,
                    seq_length=3,
-                   architecture=nets.RESNET,
                    imagenet_norm=True,
                    use_skip=True,
                    joint_encoder=True,
@@ -311,7 +305,6 @@ def main(_):
                  img_height=FLAGS.img_height,
                  img_width=FLAGS.img_width,
                  seq_length=FLAGS.seq_length,
-                 architecture=FLAGS.architecture,
                  imagenet_norm=FLAGS.imagenet_norm,
                  use_skip=FLAGS.use_skip,
                  joint_encoder=FLAGS.joint_encoder,
