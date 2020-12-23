@@ -161,6 +161,10 @@ python inference_dfv.py \
 python AbsRelError.py
 ```
 
+- abs_rel,     sq_rel,        rms,    log_rms,     d1_all,         a1,         a2,         a3,     scalor 
+- 0.2797,     3.7270,     9.6290,     0.3576,     0.0000,     0.5507,     0.8217,     0.9325 ,   14.2422
+  - これは8月と同じ数値
+
 ```
 python AbsRelError_NoScaleMatching.py
 ```
