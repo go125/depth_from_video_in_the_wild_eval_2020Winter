@@ -36,14 +36,12 @@ import os
 from absl import app
 from absl import flags
 from absl import logging
-#import matplotlib.pyplot as plt
-from depth_from_video_in_the_wild import depth_prediction_net
 from depth_from_video_in_the_wild import model
 import numpy as np
 import fnmatch
 import tensorflow as tf
-import nets
-import util
+from struct2depth import nets
+from struct2depth import util
 
 gfile = tf.gfile
 
