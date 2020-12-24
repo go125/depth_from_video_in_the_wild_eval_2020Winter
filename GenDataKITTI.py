@@ -14,8 +14,8 @@ flags.DEFINE_integer('WIDTH', 416, 'Input frame width.')
 flags.DEFINE_string('INPUT_TXT_FILE', "./calib_cam_to_cam.txt", 'calib_cam_to_cam.txt path')
 flags.DEFINE_integer('SEQ_LENGTH', 3, 'Number of frames in sequence.')
 flags.DEFINE_integer('STEPSIZE', 1, 'result step size')
-flags.DEFINE_string('OUTPUT_DIR', 'result output dir')
-flags.DEFINE_string('TEMP_DIR', 'temp data dir')
+flags.DEFINE_string('OUTPUT_DIR',None, 'result output dir')
+flags.DEFINE_string('TEMP_DIR',None, 'temp data dir')
 
 FLAGS = flags.FLAGS
 
