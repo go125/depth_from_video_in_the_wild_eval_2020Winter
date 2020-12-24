@@ -5,40 +5,30 @@ import numpy as np
 import cv2
 import shutil
 import glob
-from absl import flags
+import argparse
 
-flags.DEFINE_string('base_path', "/home/ubuntu/data/raw_data_KITTI/", 'KITTI path')
-flags.DEFINE_string('ROOT_DIR', "/home/ubuntu/git/Mask_RCNN", 'Mask_RCNN path')
-flags.DEFINE_integer('HEIGHT', 128, 'Input frame height.')
-flags.DEFINE_integer('WIDTH', 416, 'Input frame width.')
-flags.DEFINE_string('INPUT_TXT_FILE', "./calib_cam_to_cam.txt", 'calib_cam_to_cam.txt path')
-flags.DEFINE_integer('SEQ_LENGTH', 3, 'Number of frames in sequence.')
-flags.DEFINE_integer('STEPSIZE', 1, 'result step size')
-flags.DEFINE_string('OUTPUT_DIR',None, 'result output dir')
-flags.DEFINE_string('TEMP_DIR',None, 'temp data dir')
 
-FLAGS = flags.FLAGS
+parser = argparse.ArgumentParser()
+parser.add_argument("base_path", help="KITTI path", type=str)
+parser.add_argument("ROOT_DIR", help="Mask_RCNN path", type=str)
+parser.add_argument("HEIGHT", help="Input frame height.", type=int)
+parser.add_argument("WIDTH", help="Input frame width.", type=int)
+parser.add_argument("INPUT_TXT_FILE", help="calib_cam_to_cam.txt path", type=str)
+parser.add_argument("SEQ_LENGTH", help="Number of frames in sequence.", type=int)
+parser.add_argument("STEPSIZE", help="result step size", type=int)
+parser.add_argument("OUTPUT_DIR", help="result output dir", type=str)
+parser.add_argument("TEMP_DIR", help="temp data dir", type=str)
+args = parser.parse_args()
 
-flags.mark_flag_as_required('OUTPUT_DIR')
-flags.mark_flag_as_required('TEMP_DIR')
-
-# video_path
-base_path = FLAGS.base_path
-# Root directory of the RCNN project
-ROOT_DIR = FLAGS.ROOT_DIR
-# result WIDTH and HEIGHT
-WIDTH = FLAGS.WIDTH
-HEIGHT = FLAGS.HEIGHT
-# calib_cam_to_cam.txt path
-INPUT_TXT_FILE = FLAGS.INPUT_TXT_FILE
-# result seq length
-SEQ_LENGTH = FLAGS.SEQ_LENGTH
-# result step size
-STEPSIZE = FLAGS.STEPSIZE
-# result output dir
-OUTPUT_DIR = FLAGS.OUTPUT_DIR
-# temp data dir
-TEMP_DIR = FLAGS.TEMP_DIR
+base_path = args.base_path
+ROOT_DIR = args.ROOT_DIR
+HEIGHT = args.HEIGHT
+WIDTH = args.WIDTH
+INPUT_TXT_FILE = args.INPUT_TXT_FILE
+SEQ_LENGTH = args.SEQ_LENGTH
+STEPSIZE = args.STEPSIZE
+OUTPUT_DIR = args.OUTPUT_DIR
+TEMP_DIR = args.TEMP_DIR
 
 # Import Mask RCNN
 sys.path.append(ROOT_DIR)  # To find local version of the library
