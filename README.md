@@ -1,9 +1,6 @@
 
 # depth_from_video_in_the_wild_eval_2020Winter
 
-[Original](https://github.com/google-research/google-research/tree/master/depth_from_video_in_the_wild)
-
-
 ## Data Preparation (KITTI)
 
 - [ImageNet Checkpoint Preparation](https://github.com/dalgu90/resnet-18-tensorflow)
