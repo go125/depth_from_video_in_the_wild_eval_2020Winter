@@ -9,7 +9,7 @@ import argparse
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--base_path", help="KITTI path", default="/home/ubuntu/data/raw_data_KITTI/", type=str)
-parser.add_argument("--ROOT_DIR", help="Mask_RCNN path", default="home/ubuntu/git/Mask_RCNN", type=str)
+parser.add_argument("--ROOT_DIR", help="Mask_RCNN path", default="../Mask_RCNN", type=str)
 parser.add_argument("--HEIGHT", help="Input frame height.", default=128, type=int)
 parser.add_argument("--WIDTH", help="Input frame width.", default=416, type=int)
 parser.add_argument("--INPUT_TXT_FILE", help="calib_cam_to_cam.txt path", default="./calib_cam_to_cam.txt", type=str)
@@ -22,7 +22,7 @@ parser.add_argument("--TEMP_DIR", help="temp data dir", default="/home/ubuntu/da
 args = parser.parse_args()
 
 base_path = args.base_path
-ROOT_DIR = args.ROOT_DIR
+ROOT_DIR = os.path.abspath(args.ROOT_DIR)
 HEIGHT = args.HEIGHT
 WIDTH = args.WIDTH
 INPUT_TXT_FILE = args.INPUT_TXT_FILE
