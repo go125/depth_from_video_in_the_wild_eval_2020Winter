@@ -17,7 +17,7 @@ parser.add_argument("SEQ_LENGTH", help="Number of frames in sequence.", default=
 parser.add_argument("STEPSIZE", help="result step size", default=1, type=int)
 parser.add_argument("OUTPUT_DIR", help="result output dir", default="/home/ubuntu/data/kitti_result_all_20201224",
                     type=str)
-parser.add_argument("TEMP_DIR", help="temp data dir", default="/home/ubuntu/data/train_data_example_all_20200715/",
+parser.add_argument("TEMP_DIR", help="temp data dir", default="/home/ubuntu/data/train_data_example_all_20201224/",
                     type=str)
 args = parser.parse_args()
 
