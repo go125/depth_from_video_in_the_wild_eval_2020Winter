@@ -154,8 +154,7 @@ python inference_dfv.py \
 
 ### Getting Abs Rel Error
 
-以下2ファイルはステレオカメラ専用
-引数の外部化を今後実施
+下記ファイルはステレオカメラ専用
 
 ```
 python AbsRelError.py
@@ -183,7 +182,6 @@ python inference_dfv.py \
 ### Getting Abs Rel Error
 
 以下2ファイルはステレオカメラ専用
-引数の外部化を今後実施
 
 ```
 python AbsRelError.py \
