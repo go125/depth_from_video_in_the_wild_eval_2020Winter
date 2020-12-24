@@ -186,11 +186,13 @@ python inference_dfv.py \
 引数の外部化を今後実施
 
 ```
-python AbsRelError.py
+python AbsRelError.py \
+--depth_map_dir /home/ubuntu/Sayama/result_video1top_279296/
 ```
 
 ```
-python AbsRelError_NoScaleMatching.py
+python AbsRelError_NoScaleMatching.py \
+--depth_map_dir /home/ubuntu/Sayama/result_video1top_279296/
 ```
 
 ### Visualization
