@@ -5,24 +5,22 @@ import numpy as np
 import cv2
 import shutil
 import glob
+from absl import flags
 
-# video_path
-base_path = "/home/ubuntu/data/raw_data_KITTI/"
-# Root directory of the RCNN project
-ROOT_DIR = os.path.abspath("../Mask_RCNN")
-# result WIDTH and HEIGHT
-WIDTH = 416
-HEIGHT = 128
-# calib_cam_to_cam.txt path
-INPUT_TXT_FILE = "./calib_cam_to_cam.txt"
-# result seq length
-SEQ_LENGTH = 3
-# result step size
-STEPSIZE = 1
-# result output dir
-OUTPUT_DIR = "/home/ubuntu/data/kitti_result_all_20201222"
-# temp data dir
-TEMP_DIR = "/home/ubuntu/data/train_data_example_all_20201222/"
+flags.DEFINE_string('base_path', "/home/ubuntu/data/raw_data_KITTI/", 'KITTI path')
+flags.DEFINE_string('ROOT_DIR', "/home/ubuntu/git/Mask_RCNN", 'Mask_RCNN path')
+flags.DEFINE_integer('HEIGHT', 128, 'Input frame height.')
+flags.DEFINE_integer('WIDTH', 416, 'Input frame width.')
+flags.DEFINE_string('INPUT_TXT_FILE', "./calib_cam_to_cam.txt", 'calib_cam_to_cam.txt path')
+flags.DEFINE_integer('SEQ_LENGTH', 3, 'Number of frames in sequence.')
+flags.DEFINE_integer('STEPSIZE', 1, 'result step size')
+flags.DEFINE_string('OUTPUT_DIR', "/home/ubuntu/data/kitti_result_all_20201222", 'result output dir')
+flags.DEFINE_string('TEMP_DIR', "/home/ubuntu/data/train_data_example_all_20201222/", 'temp data dir')
+
+FLAGS = flags.FLAGS
+
+flags.mark_flag_as_required('OUTPUT_DIR')
+flags.mark_flag_as_required('TEMP_DIR')
 
 # Import Mask RCNN
 sys.path.append(ROOT_DIR)  # To find local version of the library
