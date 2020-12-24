@@ -188,6 +188,10 @@ python AbsRelError.py \
 --depth_map_dir /home/ubuntu/Sayama/result_video1top_279296/
 ```
 
+- abs_rel,     sq_rel,        rms,    log_rms,     d1_all,         a1,         a2,         a3,     scalor 
+- 0.2258,     3.0248,     8.5670,     0.3028,     0.0000,     0.6844,     0.8930,     0.9543 ,   14.0935 
+  - これは8月と同じ出力
+
 ```
 python AbsRelError_NoScaleMatching.py \
 --depth_map_dir /home/ubuntu/Sayama/result_video1top_279296/
