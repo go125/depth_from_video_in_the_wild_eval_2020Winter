@@ -165,11 +165,6 @@ python AbsRelError.py
 - 0.2797,     3.7270,     9.6290,     0.3576,     0.0000,     0.5507,     0.8217,     0.9325 ,   14.2422
   - これは8月と同じ数値
 
-```
-python AbsRelError_NoScaleMatching.py
-```
-
-
 ### After fine tuning
 
 ### Getting Predicted Depth
