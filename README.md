@@ -11,9 +11,7 @@
 ### Input example (KITTI)
 
 ```script
-nohup python GenDataKITTI.py \
---OUTPUT_DIR /home/ubuntu/data/kitti_result_all_20201224 \
---TEMP_DIR /home/ubuntu/data/train_data_example_all_20201224/ &
+nohup python GenDataKITTI.py &
 ```
  
 ### Input example (KITTI_gray)
