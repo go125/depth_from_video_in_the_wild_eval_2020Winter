@@ -175,7 +175,7 @@ python inference_dfv.py \
     --file_extension png \
     --depth \
     --egomotion false \
-    --input_dir /home/ubuntu/Sayama/tmpdir/2020_08_04/video1top_png/image_02/data/ \
+    --input_dir /home/ubuntu/data/Sayama/tmpdir/2020_08_04/video1top_png/image_02/data/ \
     --output_dir /home/ubuntu/Sayama/result_video1top_279296/ \
     --model_ckpt /home/ubuntu/data/kitti_experiment_checkpoint_20200716/model-279296
 ```
