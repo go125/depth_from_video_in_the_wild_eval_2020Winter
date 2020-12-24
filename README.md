@@ -1,9 +1,6 @@
 
 # depth_from_video_in_the_wild_eval_2020Winter
 
-[Original](https://github.com/google-research/google-research/tree/master/depth_from_video_in_the_wild)
-
-
 ## Data Preparation (KITTI)
 
 - [ImageNet Checkpoint Preparation](https://github.com/dalgu90/resnet-18-tensorflow)
@@ -13,8 +10,6 @@
 ```script
 nohup python GenDataKITTI.py &
 ```
- 
-### Input example (KITTI_gray)
 
 ```script
 nohup python GenDataKITTI_gray.py &
@@ -42,8 +37,6 @@ python inference_dfv.py \
     --output_dir /home/ubuntu/data/result_20201223_14394/ \
     --model_ckpt /home/ubuntu/data/kitti_experiment_checkpoint_20201223/model-14394
 ```
-
-## Inference Example (KITTI_gray)
 
 ```shell
 python inference_dfv.py \
@@ -196,6 +189,9 @@ python AbsRelError.py \
 python AbsRelError_NoScaleMatching.py \
 --depth_map_dir /home/ubuntu/Sayama/result_video1top_279296/
 ```
+- abs_rel,     sq_rel,        rms,    log_rms,     d1_all,         a1,         a2,         a3,     scalor 
+- 0.4028,     5.3890,    12.5421,     0.5733,     0.0000,     0.1633,     0.4877,     0.7393 ,    9.1144
+  - これは8月と同じ出力
 
 ### Visualization
 
