@@ -331,7 +331,9 @@ def make_dataset1(OUTPUT_DIR1, file_names, IMAGE_DIR, WIDTH, HEIGHT, data_num):
         image_file = IMAGE_DIR + file_names[i]
         img = cv2.imread(image_file)
         init_height, init_width = img.shape[:2]
-
+        # cv2.resize(img, (WIDTH,HEIGHT))
+        # 補間法を最近傍法に変更(ステレオカメラ使用時に視差データが壊れることを防ぐため)
+        # リサイズ方法も切り抜きを経由するものに変更(アスペクト比が崩れることを防ぐため)
         if (init_height / init_width) > (HEIGHT / WIDTH):
             small_height = int(init_height * (WIDTH / init_width))
             img = cv2.resize(img, (WIDTH, small_height), interpolation=cv2.INTER_NEAREST)
