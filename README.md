@@ -10,8 +10,6 @@
 ```script
 nohup python GenDataKITTI.py &
 ```
- 
-### Input example (KITTI_gray)
 
 ```script
 nohup python GenDataKITTI_gray.py &
@@ -39,8 +37,6 @@ python inference_dfv.py \
     --output_dir /home/ubuntu/data/result_20201223_14394/ \
     --model_ckpt /home/ubuntu/data/kitti_experiment_checkpoint_20201223/model-14394
 ```
-
-## Inference Example (KITTI_gray)
 
 ```shell
 python inference_dfv.py \
