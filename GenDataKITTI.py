@@ -340,16 +340,16 @@ def make_dataset1(OUTPUT_DIR1,file_names,IMAGE_DIR,WIDTH,HEIGHT,data_num):
 def make_mask_images(OUTPUT_DIR2,file_names,IMAGE_DIR,WIDTH,HEIGHT,data_num):
     for i in range(0,len(file_names)):   
         image = skimage.io.imread(os.path.join(IMAGE_DIR, file_names[i]))
-        init_height, init_width = img.shape[:2]
+        init_height, init_width = image.shape[:2]
 
         if (init_height / init_width) > (HEIGHT / WIDTH):
             small_height = int(init_height * (WIDTH / init_width))
-            img = cv2.resize(img, (WIDTH, small_height), interpolation=cv2.INTER_NEAREST)
-            img = img[(small_height // 2 - HEIGHT // 2):(small_height // 2 + HEIGHT // 2), 0: WIDTH]
+            image = cv2.resize(image, (WIDTH, small_height), interpolation=cv2.INTER_NEAREST)
+            image = image[(small_height // 2 - HEIGHT // 2):(small_height // 2 + HEIGHT // 2), 0: WIDTH]
         else:
             small_width = int(init_width * (HEIGHT / init_height))
-            img = cv2.resize(img, (small_width, HEIGHT), interpolation=cv2.INTER_NEAREST)
-            img = img[0:HEIGHT, (small_width // 2 - WIDTH // 2):(small_width // 2 + WIDTH // 2)]
+            image = cv2.resize(image, (small_width, HEIGHT), interpolation=cv2.INTER_NEAREST)
+            image = image[0:HEIGHT, (small_width // 2 - WIDTH // 2):(small_width // 2 + WIDTH // 2)]
         
         # Run detection
         results = model.detect([image], verbose=1)
