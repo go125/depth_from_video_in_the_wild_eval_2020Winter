@@ -22,6 +22,24 @@ FLAGS = flags.FLAGS
 flags.mark_flag_as_required('OUTPUT_DIR')
 flags.mark_flag_as_required('TEMP_DIR')
 
+# video_path
+base_path = FLAGS.base_path
+# Root directory of the RCNN project
+ROOT_DIR = FLAGS.ROOT_DIR
+# result WIDTH and HEIGHT
+WIDTH = FLAGS.WIDTH
+HEIGHT = FLAGS.HEIGHT
+# calib_cam_to_cam.txt path
+INPUT_TXT_FILE = FLAGS.INPUT_TXT_FILE
+# result seq length
+SEQ_LENGTH = FLAGS.SEQ_LENGTH
+# result step size
+STEPSIZE = FLAGS.STEPSIZE
+# result output dir
+OUTPUT_DIR = FLAGS.OUTPUT_DIR
+# temp data dir
+TEMP_DIR = FLAGS.TEMP_DIR
+
 # Import Mask RCNN
 sys.path.append(ROOT_DIR)  # To find local version of the library
 from mrcnn import utils
