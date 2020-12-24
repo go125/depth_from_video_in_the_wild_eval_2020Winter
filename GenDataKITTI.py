@@ -7,17 +7,18 @@ import shutil
 import glob
 import argparse
 
-
 parser = argparse.ArgumentParser()
-parser.add_argument("base_path", help="KITTI path", type=str)
-parser.add_argument("ROOT_DIR", help="Mask_RCNN path", type=str)
-parser.add_argument("HEIGHT", help="Input frame height.", type=int)
-parser.add_argument("WIDTH", help="Input frame width.", type=int)
-parser.add_argument("INPUT_TXT_FILE", help="calib_cam_to_cam.txt path", type=str)
-parser.add_argument("SEQ_LENGTH", help="Number of frames in sequence.", type=int)
-parser.add_argument("STEPSIZE", help="result step size", type=int)
-parser.add_argument("OUTPUT_DIR", help="result output dir", type=str)
-parser.add_argument("TEMP_DIR", help="temp data dir", type=str)
+parser.add_argument("base_path", help="KITTI path", default="/home/ubuntu/data/raw_data_KITTI/", type=str)
+parser.add_argument("ROOT_DIR", help="Mask_RCNN path", default="home/ubuntu/git/Mask_RCNN", type=str)
+parser.add_argument("HEIGHT", help="Input frame height.", default=128, type=int)
+parser.add_argument("WIDTH", help="Input frame width.", default=416, type=int)
+parser.add_argument("INPUT_TXT_FILE", help="calib_cam_to_cam.txt path", default="./calib_cam_to_cam.txt", type=str)
+parser.add_argument("SEQ_LENGTH", help="Number of frames in sequence.", default=3, type=int)
+parser.add_argument("STEPSIZE", help="result step size", default=1, type=int)
+parser.add_argument("OUTPUT_DIR", help="result output dir", default="/home/ubuntu/data/kitti_result_all_20201224",
+                    type=str)
+parser.add_argument("TEMP_DIR", help="temp data dir", default="/home/ubuntu/data/train_data_example_all_20200715/",
+                    type=str)
 args = parser.parse_args()
 
 base_path = args.base_path
