@@ -263,7 +263,7 @@ data_dirs = ["2011_09_26_drive_0001",
 
 
 def make_dataset():
-    global number_list, TEMP_DIR
+    global number_list, TEMP_DIR, WIDTH, HEIGHT
     number_list = []
     for dataset in data_dirs:
         if dataset in test_dirs:
@@ -282,14 +282,14 @@ def make_dataset():
         if not os.path.exists(OUTPUT_DIR1 + "/"):
             os.makedirs(OUTPUT_DIR1 + "/")
 
-        make_dataset1(OUTPUT_DIR1, file_names, dataset, IMAGE_DIR, data_num)
+        make_dataset1(OUTPUT_DIR1, file_names, IMAGE_DIR, WIDTH, HEIGHT, data_num)
 
         OUTPUT_DIR2 = TEMP_DIR + data_year + "_" + data_month + "_" + data_date + "/" + dataset + "_sync_" + data_num + '/image_03/data'
 
         if not os.path.exists(OUTPUT_DIR2 + "/"):
             os.makedirs(OUTPUT_DIR2 + "/")
 
-        make_mask_images(OUTPUT_DIR2, file_names, dataset, IMAGE_DIR, data_num)
+        make_mask_images(OUTPUT_DIR2, file_names, IMAGE_DIR, WIDTH, HEIGHT, data_num)
 
         data_num = "03"
         IMAGE_DIR = base_path + data_year + "_" + data_month + "_" + data_date + "/" + dataset + "_sync/image_" + data_num + "/data/"
@@ -301,14 +301,14 @@ def make_dataset():
         if not os.path.exists(OUTPUT_DIR1 + "/"):
             os.makedirs(OUTPUT_DIR1 + "/")
 
-        make_dataset1(OUTPUT_DIR1, file_names, dataset, IMAGE_DIR, data_num)
+        make_dataset1(OUTPUT_DIR1, file_names, IMAGE_DIR, WIDTH, HEIGHT, data_num)
 
         OUTPUT_DIR2 = TEMP_DIR + data_year + "_" + data_month + "_" + data_date + "/" + dataset + "_sync_" + data_num + '/image_03/data'
 
         if not os.path.exists(OUTPUT_DIR2 + "/"):
             os.makedirs(OUTPUT_DIR2 + "/")
 
-        make_mask_images(OUTPUT_DIR2, file_names, dataset, IMAGE_DIR, data_num)
+        make_mask_images(OUTPUT_DIR2, file_names, IMAGE_DIR, WIDTH, HEIGHT, data_num)
 
         OUTPUT_TXT_FILE = TEMP_DIR + data_year + "_" + data_month + "_" + data_date + "/calib_cam_to_cam.txt"
         shutil.copyfile(INPUT_TXT_FILE, OUTPUT_TXT_FILE)
@@ -319,20 +319,38 @@ def make_dataset():
         f.write('\n'.join(number_list))
 
 
-def make_dataset1(OUTPUT_DIR1, file_names, dataset, IMAGE_DIR, data_num):
+def make_dataset1(OUTPUT_DIR1, file_names, IMAGE_DIR, WIDTH, HEIGHT, data_num):
     for i in range(0, len(file_names)):
         image_file = IMAGE_DIR + file_names[i]
         img = cv2.imread(image_file)
-        img = cv2.resize(img, (WIDTH, HEIGHT))
+        init_height, init_width = img.shape[:2]
+
+        if (init_height / init_width) > (HEIGHT / WIDTH):
+            small_height = int(init_height * (WIDTH / init_width))
+            img = cv2.resize(img, (WIDTH, small_height), interpolation=cv2.INTER_NEAREST)
+            img = img[(small_height // 2 - HEIGHT // 2):(small_height // 2 + HEIGHT // 2), 0: WIDTH]
+        else:
+            small_width = int(init_width * (HEIGHT / init_height))
+            img = cv2.resize(img, (small_width, HEIGHT), interpolation=cv2.INTER_NEAREST)
+            img = img[0:HEIGHT, (small_width // 2 - WIDTH // 2):(small_width // 2 + WIDTH // 2)]
         if not os.path.exists(OUTPUT_DIR1):
             os.makedirs(OUTPUT_DIR1)
         cv2.imwrite(OUTPUT_DIR1 + '/' + data_num + "_" + file_names[i] + '.jpg', img)
 
 
-def make_mask_images(OUTPUT_DIR2, file_names, dataset, IMAGE_DIR, data_num):
+def make_mask_images(OUTPUT_DIR2, file_names, IMAGE_DIR, WIDTH, HEIGHT, data_num):
     for i in range(0, len(file_names)):
         image = skimage.io.imread(os.path.join(IMAGE_DIR, file_names[i]))
-        image = cv2.resize(image, (WIDTH, HEIGHT))
+        init_height, init_width = image.shape[:2]
+
+        if (init_height / init_width) > (HEIGHT / WIDTH):
+            small_height = int(init_height * (WIDTH / init_width))
+            image = cv2.resize(image, (WIDTH, small_height), interpolation=cv2.INTER_NEAREST)
+            image = image[(small_height // 2 - HEIGHT // 2):(small_height // 2 + HEIGHT // 2), 0: WIDTH]
+        else:
+            small_width = int(init_width * (HEIGHT / init_height))
+            image = cv2.resize(image, (small_width, HEIGHT), interpolation=cv2.INTER_NEAREST)
+            image = image[0:HEIGHT, (small_width // 2 - WIDTH // 2):(small_width // 2 + WIDTH // 2)]
 
         # Run detection
         results = model.detect([image], verbose=1)
@@ -373,13 +391,10 @@ def get_line(file, start):
 
 def run_all():
     global number_list, OUTPUT_DIR, TEMP_DIR
-    ct = 0
-
     if not OUTPUT_DIR.endswith('/'):
         OUTPUT_DIR = OUTPUT_DIR + '/'
 
     for d in glob.glob(TEMP_DIR + '*/'):
-        date = d.split('/')[-2]
         file_calibration = d + 'calib_cam_to_cam.txt'
         calib_raw = [get_line(file_calibration, 'P_rect_02'), get_line(file_calibration, 'P_rect_03')]
 
