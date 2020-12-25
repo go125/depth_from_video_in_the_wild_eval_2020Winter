@@ -17,10 +17,12 @@ nohup python GenDataKITTI_gray.py &
 
 ## Train example (KITTI)
 
+カラーで訓練
+
 ```script
 nohup python -m depth_from_video_in_the_wild.train \
---data_dir /home/ubuntu/data/kitti_result_all_20201222 \
---checkpoint_dir=/home/ubuntu/data/kitti_experiment_checkpoint_20201223 \
+--data_dir /home/ubuntu/data/kitti_result_all_20201224 \
+--checkpoint_dir=/home/ubuntu/data/kitti_experiment_checkpoint_20201224 \
 --imagenet_ckpt=/home/ubuntu/data/ResNet18/model.ckpt \
 --train_steps=1000000 &
 ```
