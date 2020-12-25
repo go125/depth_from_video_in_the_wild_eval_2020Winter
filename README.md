@@ -9,8 +9,8 @@
 
 ```script
 nohup python GenDataKITTI.py \
---OUTPUT_DIR /home/ubuntu/data/kitti_result_all_20201225_short \
---TEMP_DIR /home/ubuntu/data/train_data_example_all_20201225_short/ &
+--OUTPUT_DIR /home/ubuntu/data/kitti_result_all_20201225 \
+--TEMP_DIR /home/ubuntu/data/train_data_example_all_20201225/ &
 ```
 
 ```script
