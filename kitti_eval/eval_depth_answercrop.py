@@ -22,22 +22,16 @@ def main():
         read_file_data(test_files, args.kitti_dir)
     num_test = len(im_files)
     gt_depths = []
-    pred_depths_resized = []
     for t_id in range(num_test):
         print(t_id)
         camera_id = cams[t_id]  # 2 is left, 3 is right
-        # ここでのpred_depthのリサイズを廃止
-        # pred_depths_resized.append(
-            # cv2.resize(pred_depths[t_id],
-                       # (im_sizes[t_id][1], im_sizes[t_id][0]),
-                       # interpolation=cv2.INTER_LINEAR))
         depth = generate_depth_map(gt_calib[t_id], 
                                    gt_files[t_id], 
                                    im_sizes[t_id], 
                                    camera_id, 
                                    False, 
                                    True)
-        # TO DO ここでgt_depthをリサイズする
+        # ここでgt_depthをリサイズする
         HEIGHT, WIDTH = 128, 416
         init_height, init_width = depth.shape[:2]
         print("init_height=" + str(init_height))
@@ -54,8 +48,7 @@ def main():
             depth = cv2.resize(depth, (small_width, HEIGHT), interpolation=cv2.INTER_NEAREST)
             depth = depth[0:HEIGHT, (small_width // 2 - WIDTH // 2):(small_width // 2 + WIDTH // 2)]
         gt_depths.append(depth.astype(np.float32))
-    pred_depths = pred_depths_resized
-
+    
     rms     = np.zeros(num_test, np.float32)
     log_rms = np.zeros(num_test, np.float32)
     abs_rel = np.zeros(num_test, np.float32)
@@ -68,7 +61,6 @@ def main():
     for i in range(num_test):    
         gt_depth = gt_depths[i]
         pred_depth = np.copy(pred_depths[i])
-
         mask = np.logical_and(gt_depth > args.min_depth, 
                               gt_depth < args.max_depth)
         # crop used by Garg ECCV16 to reprocude Eigen NIPS14 results
