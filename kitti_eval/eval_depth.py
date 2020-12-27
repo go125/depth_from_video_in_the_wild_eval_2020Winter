@@ -36,6 +36,7 @@ def main():
                                    camera_id, 
                                    False, 
                                    True)
+        # TO DO ここでgt_depthをリサイズする
         gt_depths.append(depth.astype(np.float32))
     pred_depths = pred_depths_resized
 
