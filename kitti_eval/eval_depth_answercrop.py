@@ -26,16 +26,33 @@ def main():
     for t_id in range(num_test):
         print(t_id)
         camera_id = cams[t_id]  # 2 is left, 3 is right
-        pred_depths_resized.append(
-            cv2.resize(pred_depths[t_id], 
-                       (im_sizes[t_id][1], im_sizes[t_id][0]), 
-                       interpolation=cv2.INTER_LINEAR))
+        # ここでのpred_depthのリサイズを廃止
+        # pred_depths_resized.append(
+            # cv2.resize(pred_depths[t_id],
+                       # (im_sizes[t_id][1], im_sizes[t_id][0]),
+                       # interpolation=cv2.INTER_LINEAR))
         depth = generate_depth_map(gt_calib[t_id], 
                                    gt_files[t_id], 
                                    im_sizes[t_id], 
                                    camera_id, 
                                    False, 
                                    True)
+        # TO DO ここでgt_depthをリサイズする
+        HEIGHT, WIDTH = 128, 416
+        init_height, init_width = depth.shape[:2]
+        print("init_height=" + str(init_height))
+        print("init_width=" + str(width))
+        # cv2.resize(depth, (WIDTH,HEIGHT))
+        # 補間法は最近傍法(ステレオカメラ使用時に視差データが壊れることを防ぐため)
+        # リサイズ方法は切り抜きを経由(アスペクト比が崩れることを防ぐため)
+        if (init_height / init_width) > (HEIGHT / WIDTH):
+            small_height = int(init_height * (WIDTH / init_width))
+            depth = cv2.resize(depth, (WIDTH, small_height), interpolation=cv2.INTER_NEAREST)
+            depth = depth[(small_height // 2 - HEIGHT // 2):(small_height // 2 + HEIGHT // 2), 0: WIDTH]
+        else:
+            small_width = int(init_width * (HEIGHT / init_height))
+            depth = cv2.resize(depth, (small_width, HEIGHT), interpolation=cv2.INTER_NEAREST)
+            depth = depth[0:HEIGHT, (small_width // 2 - WIDTH // 2):(small_width // 2 + WIDTH // 2)]
         gt_depths.append(depth.astype(np.float32))
     pred_depths = pred_depths_resized
 
@@ -51,6 +68,7 @@ def main():
     for i in range(num_test):    
         gt_depth = gt_depths[i]
         pred_depth = np.copy(pred_depths[i])
+
         mask = np.logical_and(gt_depth > args.min_depth, 
                               gt_depth < args.max_depth)
         # crop used by Garg ECCV16 to reprocude Eigen NIPS14 results
