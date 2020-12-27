@@ -78,6 +78,7 @@ python kitti_eval/eval_depth_answercrop.py --kitti_dir=/home/ubuntu/data/raw_dat
 - abs_rel,     sq_rel,        rms,    log_rms,     d1_all,         a1,         a2,         a3,     scalor 
 - 0.7686,    15.5203,    15.5474,     0.7932,     0.0000,     0.2405,     0.4443,     0.6094 ,    8.2455 
   - 原因の調査が必要(おそらく正解データの誤り)
+    - 計算時間が長いのもおかしい
 
 ## Finetuning with the video taken in Saitama
 
