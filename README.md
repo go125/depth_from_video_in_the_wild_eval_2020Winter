@@ -65,7 +65,7 @@ python kitti_eval/eval_depth.py --kitti_dir=/home/ubuntu/data/raw_data_KITTI/ --
   - この出力は7月実行時と同じ結果である(このコードは過去のコードと等価)
   
 ```shell
-python kitti_eval/eval_depth.py --kitti_dir=/home/ubuntu/data/raw_data_KITTI/ --pred_file=/home/ubuntu/data/result_20201225_100754/result.npy
+python kitti_eval/eval_depth.py --kitti_dir=/home/ubuntu/data/raw_data_KITTI/ --pred_file=/home/ubuntu/data/result_20201225_100758/result.npy
 ```
 
 ## Finetuning with the video taken in Saitama
