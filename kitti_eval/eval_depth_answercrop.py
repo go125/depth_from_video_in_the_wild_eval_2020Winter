@@ -41,7 +41,7 @@ def main():
         HEIGHT, WIDTH = 128, 416
         init_height, init_width = depth.shape[:2]
         print("init_height=" + str(init_height))
-        print("init_width=" + str(width))
+        print("init_width=" + str(init_width))
         # cv2.resize(depth, (WIDTH,HEIGHT))
         # 補間法は最近傍法(ステレオカメラ使用時に視差データが壊れることを防ぐため)
         # リサイズ方法は切り抜きを経由(アスペクト比が崩れることを防ぐため)
