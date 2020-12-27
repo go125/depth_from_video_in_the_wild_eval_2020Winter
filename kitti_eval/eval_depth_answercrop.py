@@ -69,8 +69,8 @@ def main():
         # crop used by Garg ECCV16 to reprocude Eigen NIPS14 results
         # if used on gt_size 370x1224 produces a crop of [-218, -3, 44, 1180]
         gt_height, gt_width = gt_depth.shape
-        crop = np.array([0.40810811 * gt_height,  0.99189189 * gt_height,   
-                         0.03594771 * gt_width,   0.96405229 * gt_width]).astype(np.int32)
+        # crop = np.array([0.40810811 * gt_height,  0.99189189 * gt_height,
+                         # 0.03594771 * gt_width,   0.96405229 * gt_width]).astype(np.int32)
 
         crop_mask = np.zeros(mask.shape)
         crop_mask[crop[0]:crop[1],crop[2]:crop[3]] = 1
