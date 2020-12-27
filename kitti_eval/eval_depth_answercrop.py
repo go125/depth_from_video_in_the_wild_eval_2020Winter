@@ -47,6 +47,9 @@ def main():
             small_width = int(init_width * (HEIGHT / init_height))
             depth = cv2.resize(depth, (small_width, HEIGHT), interpolation=cv2.INTER_NEAREST)
             depth = depth[0:HEIGHT, (small_width // 2 - WIDTH // 2):(small_width // 2 + WIDTH // 2)]
+        pres_height, pres_width = depth.shape[:2]
+        print("pres_height=" + str(pres_height))
+        print("pres_width=" + str(pres_width))
         gt_depths.append(depth.astype(np.float32))
     
     rms     = np.zeros(num_test, np.float32)
