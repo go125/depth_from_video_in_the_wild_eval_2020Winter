@@ -26,6 +26,7 @@ def main():
     for t_id in range(num_test):
         print(t_id)
         camera_id = cams[t_id]  # 2 is left, 3 is right
+        # TO DO ここでのpred_depthのリサイズを廃止
         pred_depths_resized.append(
             cv2.resize(pred_depths[t_id], 
                        (im_sizes[t_id][1], im_sizes[t_id][0]), 
