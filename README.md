@@ -38,9 +38,9 @@ python inference_dfv.py \
     --file_extension png \
     --depth \
     --egomotion false \
-    --input_list_file /home/ubuntu/data/raw_data_KITTI/test_files_eigen.txt \
-    --output_dir /home/ubuntu/data/result_20201223_14394/ \
-    --model_ckpt /home/ubuntu/data/kitti_experiment_checkpoint_20201223/model-14394
+    --input_list_file /home/ubuntu/data/raw_data_KITTI/test_files_eigen_gray.txt \
+    --output_dir /home/ubuntu/data/result_20201223_273486/ \
+    --model_ckpt /home/ubuntu/data/kitti_experiment_checkpoint_20200716/model-273486
 ```
 
 ```shell
@@ -49,9 +49,9 @@ python inference_dfv.py \
     --file_extension png \
     --depth \
     --egomotion false \
-    --input_list_file /home/ubuntu/data/raw_data_KITTI/test_files_eigen_gray.txt \
-    --output_dir /home/ubuntu/data/result_20201223_273486/ \
-    --model_ckpt /home/ubuntu/data/kitti_experiment_checkpoint_20200716/model-273486
+    --input_list_file /home/ubuntu/data/raw_data_KITTI/test_files_eigen.txt \
+    --output_dir /home/ubuntu/data/result_20201225_100758/ \
+    --model_ckpt /home/ubuntu/data/kitti_experiment_checkpoint_20201225/model-100758
 ```
 
 ### Getting Abs Rel Error (KITTI)
@@ -63,6 +63,10 @@ python kitti_eval/eval_depth.py --kitti_dir=/home/ubuntu/data/raw_data_KITTI/ --
 - abs_rel,     sq_rel,        rms,    log_rms,     d1_all,         a1,         a2,         a3,     scalor 
 - 0.1374,     0.9873,     5.5315,     0.2212,     0.0000,     0.8166,     0.9388,     0.9754 ,   12.3922
   - この出力は7月実行時と同じ結果である(このコードは過去のコードと等価)
+  
+```shell
+python kitti_eval/eval_depth.py --kitti_dir=/home/ubuntu/data/raw_data_KITTI/ --pred_file=/home/ubuntu/data/result_20201225_100754/result.npy
+```
 
 ## Finetuning with the video taken in Saitama
 
