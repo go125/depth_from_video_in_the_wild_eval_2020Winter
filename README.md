@@ -21,6 +21,7 @@ nohup python GenDataKITTI_gray.py &
 
 - カラーで訓練
 - 下記データでAbs Rel Errorが0.13まで下がるか観察
+  - 成功！
 
 ```script
 nohup python -m depth_from_video_in_the_wild.train \
