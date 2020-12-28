@@ -14,7 +14,11 @@ nohup python GenDataKITTI.py \
 ```
 
 ```script
-nohup python GenDataKITTI_gray.py &
+nohup python GenDataKITTI_gray.py \
+--HEIGHT 128 \
+--WIDTH 256 \
+--OUTPUT_DIR /home/ubuntu/data/kitti_result_all_20201228 \
+--TEMP_DIR /home/ubuntu/data/train_data_example_all_20201228/ &
 ```
 
 ## Train example (KITTI)
