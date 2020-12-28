@@ -41,7 +41,7 @@ pred_depth = np.load(depth_map_dir + file_names_2[0] + '.npy')
 pred_depth = cv2.resize(pred_depth, (416, 128))  # 次元数を2に変更
 
 def draw_images_ans_int(image_file):
-    global ans_int_disp_map_dir
+    global ans_int_disp_map_dir, ans_int_disp_map
     f_name = ans_int_disp_map_dir + "/" + image_file
     ans_int_disp_map = cv2.imread(f_name)
     ans_int_disp_map = cv2.cvtColor(ans_int_disp_map, cv2.COLOR_RGB2GRAY)
