@@ -8,12 +8,6 @@
 ### Input example (KITTI)
 
 ```script
-nohup python GenDataKITTI.py \
---OUTPUT_DIR /home/ubuntu/data/kitti_result_all_20201225 \
---TEMP_DIR /home/ubuntu/data/train_data_example_all_20201225/ &
-```
-
-```script
 nohup python GenDataKITTI_gray.py \
 --HEIGHT 128 \
 --WIDTH 256 \
@@ -22,19 +16,6 @@ nohup python GenDataKITTI_gray.py \
 ```
 
 ## Train example (KITTI)
-
-- カラーで訓練
-- 下記データでAbs Rel Errorが0.13まで下がるか観察
-  - 成功！
-
-```script
-nohup python -m depth_from_video_in_the_wild.train \
---data_dir /home/ubuntu/data/kitti_result_all_20201225 \
---checkpoint_dir=/home/ubuntu/data/kitti_experiment_checkpoint_20201225 \
---imagenet_ckpt=/home/ubuntu/data/ResNet18/model.ckpt \
---train_steps=1000000 &
-```
-
 - 白黒で訓練
 - 下記データでAbs Rel Errorが0.1374まで下がるか確認
 
@@ -82,14 +63,6 @@ python kitti_eval/eval_depth.py --kitti_dir=/home/ubuntu/data/raw_data_KITTI/ --
 - 0.1374,     0.9873,     5.5315,     0.2212,     0.0000,     0.8166,     0.9388,     0.9754 ,   12.3922
   - この出力は7月実行時と同じ結果である(このコードは過去のコードと等価)
   
-```shell
-python kitti_eval/eval_depth.py --kitti_dir=/home/ubuntu/data/raw_data_KITTI/ --pred_file=/home/ubuntu/data/result_20201225_143940/result.npy
-```
-
-- abs_rel,     sq_rel,        rms,    log_rms,     d1_all,         a1,         a2,         a3,     scalor 
-- 0.1305,     0.9316,     5.3069,     0.2099,     0.0000,     0.8309,     0.9460,     0.9788 ,    8.1981 
-  - 最近傍法でも精度は落ちない
-
 ## Finetuning with the video taken in Saitama
 
 ## 1. Use StereoAVIToPNG.py
