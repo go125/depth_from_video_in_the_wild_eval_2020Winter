@@ -200,7 +200,3 @@ python AbsRelError_NoScaleMatching.py \
 ### Visualization
 
 今後既存ipynbを変換予定
-
-### Future
-
-測距まで実装したい
