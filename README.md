@@ -68,6 +68,10 @@ python kitti_eval/eval_depth.py --kitti_dir=/home/ubuntu/data/raw_data_KITTI/ --
 python kitti_eval/eval_depth.py --kitti_dir=/home/ubuntu/data/raw_data_KITTI/ --pred_file=/home/ubuntu/data/result_20201225_143940/result.npy
 ```
 
+- abs_rel,     sq_rel,        rms,    log_rms,     d1_all,         a1,         a2,         a3,     scalor 
+- 0.1305,     0.9316,     5.3069,     0.2099,     0.0000,     0.8309,     0.9460,     0.9788 ,    8.1981 
+  - 最近傍法でも精度は落ちない
+
 ## Finetuning with the video taken in Saitama
 
 ## 1. Use StereoAVIToPNG.py
