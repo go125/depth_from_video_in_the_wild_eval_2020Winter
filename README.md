@@ -50,8 +50,8 @@ python inference_dfv.py \
     --depth \
     --egomotion false \
     --input_list_file /home/ubuntu/data/raw_data_KITTI/test_files_eigen.txt \
-    --output_dir /home/ubuntu/data/result_20201225_100758/ \
-    --model_ckpt /home/ubuntu/data/kitti_experiment_checkpoint_20201225/model-100758
+    --output_dir /home/ubuntu/data/result_20201225_143940/ \
+    --model_ckpt /home/ubuntu/data/kitti_experiment_checkpoint_20201225/model-143940
 ```
 
 ### Getting Abs Rel Error (KITTI)
@@ -65,11 +65,8 @@ python kitti_eval/eval_depth.py --kitti_dir=/home/ubuntu/data/raw_data_KITTI/ --
   - この出力は7月実行時と同じ結果である(このコードは過去のコードと等価)
   
 ```shell
-python kitti_eval/eval_depth.py --kitti_dir=/home/ubuntu/data/raw_data_KITTI/ --pred_file=/home/ubuntu/data/result_20201225_100758/result.npy
+python kitti_eval/eval_depth.py --kitti_dir=/home/ubuntu/data/raw_data_KITTI/ --pred_file=/home/ubuntu/data/result_20201225_143940/result.npy
 ```
-
-- abs_rel,     sq_rel,        rms,    log_rms,     d1_all,         a1,         a2,         a3,     scalor 
-- 0.1352,     0.9815,     5.2509,     0.2097,     0.0000,     0.8312,     0.9454,     0.9789 ,    8.1171
 
 ## Finetuning with the video taken in Saitama
 
