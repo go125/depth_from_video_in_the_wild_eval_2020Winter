@@ -6,7 +6,7 @@ save_path = '/home/ubuntu/data/Sayama/tmpdir/2020_08_04/video1top_png/image_02/d
 
 depth_map_dir = "/home/ubuntu/data/Sayama_202008/result_video1top_273486/"
 
-ans_int_disp_map_dir = "/home/ubuntu/Sayama/tmpdir/2020_08_04/video1middle_png/image_02/data"
+ans_int_disp_map_dir = "/home/ubuntu/data/Sayama/tmpdir/2020_08_04/video1middle_png/image_02/data"
 
 file_names = ["frame_000940.png"]
 
@@ -43,7 +43,6 @@ pred_depth = cv2.resize(pred_depth, (416, 128))  # 次元数を2に変更
 def draw_images_ans_int(image_file):
     global ans_int_disp_map_dir
     f_name = ans_int_disp_map_dir + "/" + image_file
-    print(f_name)
     _ans_int_disp_map = cv2.imread(f_name)
     _ans_int_disp_map = cv2.cvtColor(_ans_int_disp_map, cv2.COLOR_RGB2GRAY)
     return _ans_int_disp_map
