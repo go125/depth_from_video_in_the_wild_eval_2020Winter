@@ -35,6 +35,9 @@ nohup python -m depth_from_video_in_the_wild.train \
 --train_steps=1000000 &
 ```
 
+- 白黒で訓練
+- 下記データでAbs Rel Errorが0.1374まで下がるか確認
+
 ```script
 nohup python -m depth_from_video_in_the_wild.train \
 --img_height 128 \
