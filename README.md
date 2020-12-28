@@ -71,15 +71,6 @@ python kitti_eval/eval_depth.py --kitti_dir=/home/ubuntu/data/raw_data_KITTI/ --
 - abs_rel,     sq_rel,        rms,    log_rms,     d1_all,         a1,         a2,         a3,     scalor 
 - 0.1352,     0.9815,     5.2509,     0.2097,     0.0000,     0.8312,     0.9454,     0.9789 ,    8.1171
 
-```shell
-python kitti_eval/eval_depth_answercrop.py --kitti_dir=/home/ubuntu/data/raw_data_KITTI/ --pred_file=/home/ubuntu/data/result_20201225_100758/result.npy
-```
-
-- abs_rel,     sq_rel,        rms,    log_rms,     d1_all,         a1,         a2,         a3,     scalor 
-- 0.7686,    15.5203,    15.5474,     0.7932,     0.0000,     0.2405,     0.4443,     0.6094 ,    8.2455 
-  - 原因の調査が必要(おそらく正解データの誤り)
-    - 計算時間が長いのもおかしい
-
 ## Finetuning with the video taken in Saitama
 
 ## 1. Use StereoAVIToPNG.py
