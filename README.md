@@ -8,24 +8,23 @@
 ### Input example (KITTI)
 
 ```script
-nohup python GenDataKITTI.py \
---OUTPUT_DIR /home/ubuntu/data/kitti_result_all_20201225 \
---TEMP_DIR /home/ubuntu/data/train_data_example_all_20201225/ &
-```
-
-```script
-nohup python GenDataKITTI_gray.py &
+nohup python GenDataKITTI_gray.py \
+--HEIGHT 128 \
+--WIDTH 256 \
+--OUTPUT_DIR /home/ubuntu/data/kitti_result_all_20201228 \
+--TEMP_DIR /home/ubuntu/data/train_data_example_all_20201228/ &
 ```
 
 ## Train example (KITTI)
-
-- カラーで訓練
-- 下記データでAbs Rel Errorが0.13まで下がるか観察
+- 白黒で訓練
+- 下記データでAbs Rel Errorが0.1374まで下がるか確認
 
 ```script
 nohup python -m depth_from_video_in_the_wild.train \
---data_dir /home/ubuntu/data/kitti_result_all_20201225 \
---checkpoint_dir=/home/ubuntu/data/kitti_experiment_checkpoint_20201225 \
+--img_height 128 \
+--img_width 256 \
+--data_dir /home/ubuntu/data/kitti_result_all_20201228 \
+--checkpoint_dir=/home/ubuntu/data/kitti_experiment_checkpoint_20201228 \
 --imagenet_ckpt=/home/ubuntu/data/ResNet18/model.ckpt \
 --train_steps=1000000 &
 ```
@@ -50,8 +49,8 @@ python inference_dfv.py \
     --depth \
     --egomotion false \
     --input_list_file /home/ubuntu/data/raw_data_KITTI/test_files_eigen.txt \
-    --output_dir /home/ubuntu/data/result_20201225_100758/ \
-    --model_ckpt /home/ubuntu/data/kitti_experiment_checkpoint_20201225/model-100758
+    --output_dir /home/ubuntu/data/result_20201225_143940/ \
+    --model_ckpt /home/ubuntu/data/kitti_experiment_checkpoint_20201225/model-143940
 ```
 
 ### Getting Abs Rel Error (KITTI)
@@ -64,13 +63,6 @@ python kitti_eval/eval_depth.py --kitti_dir=/home/ubuntu/data/raw_data_KITTI/ --
 - 0.1374,     0.9873,     5.5315,     0.2212,     0.0000,     0.8166,     0.9388,     0.9754 ,   12.3922
   - この出力は7月実行時と同じ結果である(このコードは過去のコードと等価)
   
-```shell
-python kitti_eval/eval_depth.py --kitti_dir=/home/ubuntu/data/raw_data_KITTI/ --pred_file=/home/ubuntu/data/result_20201225_100758/result.npy
-```
-
-- abs_rel,     sq_rel,        rms,    log_rms,     d1_all,         a1,         a2,         a3,     scalor 
-- 0.1352,     0.9815,     5.2509,     0.2097,     0.0000,     0.8312,     0.9454,     0.9789 ,    8.1171
-
 ## Finetuning with the video taken in Saitama
 
 ## 1. Use StereoAVIToPNG.py
@@ -208,7 +200,3 @@ python AbsRelError_NoScaleMatching.py \
 ### Visualization
 
 今後既存ipynbを変換予定
-
-### Future
-
-測距まで実装したい
