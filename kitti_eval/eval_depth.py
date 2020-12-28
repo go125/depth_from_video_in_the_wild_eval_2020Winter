@@ -22,7 +22,7 @@ def resize_with_black(img, base_w, base_h ,init_height, init_width):
     img_h, img_w = init_height, init_width  # 画像サイズ
     img_ratio = img_w / img_h  # 画像サイズ縦横比
 
-    black_img = np.zeros((base_h, base_w, 1), np.float32)  # ベース作成
+    black_img = np.zeros((base_h, base_w), np.float32)  # ベース作成
 
     if img_ratio > base_ratio:
         h = int(base_w / img_ratio)  # 横から縦を計算
@@ -43,12 +43,12 @@ def resize_with_black(img, base_w, base_h ,init_height, init_width):
 
 def make_aspect_mask(base_w, base_h ,init_height, init_width):
     # https://github.com/Penguin8885/img_resizer
-    img = np.ones((init_height, init_width, 1), np.float32)
+    img = np.ones((init_height, init_width), np.float32)
     base_ratio = base_w / base_h  # リサイズ画像サイズ縦横比
     img_h, img_w = init_height, init_width  # 画像サイズ
     img_ratio = img_w / img_h  # 画像サイズ縦横比
 
-    black_img = np.zeros((base_h, base_w, 1), np.float32)  # ベース作成
+    black_img = np.zeros((base_h, base_w), np.float32)  # ベース作成
 
     if img_ratio > base_ratio:
         h = int(base_w / img_ratio)  # 横から縦を計算
