@@ -131,7 +131,7 @@ def main():
         mask = np.logical_and(mask, crop_mask)
 
         # アスペクト比修正用マスクの合成
-        mask_w, mask_h = mask.shape[:2]
+        mask_h, mask_w = mask.shape[:2]
         aspect_mask = make_aspect_mask(mask_w, mask_h, init_height, init_width)
         mask = np.logical_and(mask, aspect_mask)
 
