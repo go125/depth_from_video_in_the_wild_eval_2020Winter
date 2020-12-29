@@ -38,7 +38,7 @@ python inference_dfv.py \
     --depth \
     --egomotion false \
     --input_list_file /home/ubuntu/data/raw_data_KITTI/test_files_eigen.txt \
-    --output_dir /home/ubuntu/data/result_20201225_143940/ \
+    --output_dir /home/ubuntu/data/result_20201225_143940_1229test/ \
     --model_ckpt /home/ubuntu/data/kitti_experiment_checkpoint_20201225/model-143940
 ```
 
@@ -71,6 +71,10 @@ python kitti_eval/eval_depth.py --kitti_dir=/home/ubuntu/data/raw_data_KITTI/ --
 - アスペクト比変更オプション不使用
 - abs_rel,     sq_rel,        rms,    log_rms,     d1_all,         a1,         a2,         a3,     scalor 
 - 0.1305,     0.9316,     5.3069,     0.2099,     0.0000,     0.8309,     0.9460,     0.9788 ,    8.1981 
+
+```shell
+python kitti_eval/eval_depth.py --kitti_dir=/home/ubuntu/data/raw_data_KITTI/ --pred_file=/home/ubuntu/data/result_20201225_143940_1229test/result.npy
+```
 
 
 ```shell
