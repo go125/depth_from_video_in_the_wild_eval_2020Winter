@@ -141,8 +141,8 @@ def _run_inference(output_dir=None,
   """Runs inference. Refer to flags in inference.py for details."""
   inference_model = model.Model(is_training=False,
         						batch_size=1,
-        						img_height=128,
-        						img_width=416)
+                                img_height=FLAGS.img_height,
+                                img_width=FLAGS.img_width)
         						
   vars_to_restore = util.get_vars_to_save_and_restore(model_ckpt)
   saver = tf.train.Saver(vars_to_restore)
