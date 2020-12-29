@@ -44,6 +44,8 @@ python inference_dfv.py \
 
 ```shell
 python inference_dfv.py \
+    --img_height 128 \
+    --img_width 256 \
     --logtostderr \
     --file_extension png \
     --depth \
