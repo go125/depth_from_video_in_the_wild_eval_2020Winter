@@ -38,19 +38,8 @@ python inference_dfv.py \
     --depth \
     --egomotion false \
     --input_list_file /home/ubuntu/data/raw_data_KITTI/test_files_eigen_gray.txt \
-    --output_dir /home/ubuntu/data/result_20201223_273486/ \
+    --output_dir /home/ubuntu/data/result_20201223_273486_1229test/ \
     --model_ckpt /home/ubuntu/data/kitti_experiment_checkpoint_20200716/model-273486
-```
-
-```shell
-python inference_dfv.py \
-    --logtostderr \
-    --file_extension png \
-    --depth \
-    --egomotion false \
-    --input_list_file /home/ubuntu/data/raw_data_KITTI/test_files_eigen.txt \
-    --output_dir /home/ubuntu/data/result_20201225_143940/ \
-    --model_ckpt /home/ubuntu/data/kitti_experiment_checkpoint_20201225/model-143940
 ```
 
 ```shell
@@ -67,7 +56,7 @@ python inference_dfv.py \
 ### Getting Abs Rel Error (KITTI)
 
 ```shell
-python kitti_eval/eval_depth.py --kitti_dir=/home/ubuntu/data/raw_data_KITTI/ --pred_file=/home/ubuntu/data/result_20201223_273486/result.npy
+python kitti_eval/eval_depth.py --kitti_dir=/home/ubuntu/data/raw_data_KITTI/ --pred_file=/home/ubuntu/data/result_20201223_273486_1229test/result.npy
 ```
 
 - abs_rel,     sq_rel,        rms,    log_rms,     d1_all,         a1,         a2,         a3,     scalor 
