@@ -53,6 +53,17 @@ python inference_dfv.py \
     --model_ckpt /home/ubuntu/data/kitti_experiment_checkpoint_20201225/model-143940
 ```
 
+```shell
+python inference_dfv.py \
+    --logtostderr \
+    --file_extension png \
+    --depth \
+    --egomotion false \
+    --input_list_file /home/ubuntu/data/raw_data_KITTI/test_files_eigen.txt \
+    --output_dir /home/ubuntu/data/result_20201228_14394/ \
+    --model_ckpt /home/ubuntu/data/kitti_experiment_checkpoint_20201228/model-14394
+```
+
 ### Getting Abs Rel Error (KITTI)
 
 ```shell
@@ -199,4 +210,6 @@ python AbsRelError_NoScaleMatching.py \
 
 ### Visualization
 
-今後既存ipynbを変換予定
+```
+python Visualization.py 
+```
