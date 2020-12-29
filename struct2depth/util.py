@@ -64,9 +64,19 @@ def load_image(img_file, resize=None, interpolation='linear'):
   #im = cv2.imdecode(im_data, cv2.IMREAD_COLOR)
   im = cv2.imread(img_file)
   im = cv2.cvtColor(im, cv2.COLOR_BGR2RGB)
+  WIDTH, HEIGHT = resize
+  init_height, init_width = im.shape[:2]
   if resize and resize != im.shape[:2]:
-    ip = cv2.INTER_LINEAR if interpolation == 'linear' else cv2.INTER_NEAREST
-    im = cv2.resize(im, resize, interpolation=ip)
+  # inference_dfv.pyのcropパート
+  # アスペクト比を崩さないように内容を変更
+    if (init_height / init_width) > (HEIGHT / WIDTH):
+      small_height = int(init_height * (WIDTH / init_width))
+      im = cv2.resize(im, (WIDTH, small_height), interpolation=cv2.INTER_NEAREST)
+      im = im[(small_height // 2 - HEIGHT // 2):(small_height // 2 + HEIGHT // 2), 0: WIDTH]
+    else:
+      small_width = int(init_width * (HEIGHT / init_height))
+      im = cv2.resize(im, (small_width, HEIGHT), interpolation=cv2.INTER_NEAREST)
+      im = im[0:HEIGHT, (small_width // 2 - WIDTH // 2):(small_width // 2 + WIDTH // 2)]
   return np.array(im, dtype=np.float32) / 255.0
 
 
