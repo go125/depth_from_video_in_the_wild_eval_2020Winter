@@ -55,7 +55,7 @@ def gray2rgb(im, cmap=CMAP_DEFAULT):
     return result_img
 
 
-def load_image(img_file, resize=None, Aspect=True):
+def load_image(img_file, resize=None):
     """Load image from disk. Output value range: [0,1]."""
     # im_data = np.fromstring(gfile.Open(img_file).read(), np.uint8)
     # im = cv2.imdecode(im_data, cv2.IMREAD_COLOR)
@@ -65,19 +65,17 @@ def load_image(img_file, resize=None, Aspect=True):
     init_height, init_width = im.shape[:2]
     if resize and resize != im.shape[:2]:
         # inference_dfv.pyのcropパート
-        if Aspect:
-            # アスペクト比を崩さないように内容を変更
-            if (init_height / init_width) > (HEIGHT / WIDTH):
-                small_height = int(init_height * (WIDTH / init_width))
-                im = cv2.resize(im, (WIDTH, small_height), interpolation=cv2.INTER_NEAREST)
-                im = im[(small_height // 2 - HEIGHT // 2):(small_height // 2 + HEIGHT // 2), 0: WIDTH]
-            else:
-                small_width = int(init_width * (HEIGHT / init_height))
-                im = cv2.resize(im, (small_width, HEIGHT), interpolation=cv2.INTER_NEAREST)
-                im = im[0:HEIGHT, (small_width // 2 - WIDTH // 2):(small_width // 2 + WIDTH // 2)]
+        # アスペクト比を崩さないように内容を変更
+        if (init_height / init_width) > (HEIGHT / WIDTH):
+            small_height = int(init_height * (WIDTH / init_width))
+            im = cv2.resize(im, (WIDTH, small_height), interpolation=cv2.INTER_NEAREST)
+            im = im[(small_height // 2 - HEIGHT // 2):(small_height // 2 + HEIGHT // 2), 0: WIDTH]
         else:
-            # 既存手法
-            im = cv2.resize(im, (WIDTH, HEIGHT))
+            small_width = int(init_width * (HEIGHT / init_height))
+            im = cv2.resize(im, (small_width, HEIGHT), interpolation=cv2.INTER_NEAREST)
+            im = im[0:HEIGHT, (small_width // 2 - WIDTH // 2):(small_width // 2 + WIDTH // 2)]
+        # 既存手法
+        # im = cv2.resize(im, (WIDTH, HEIGHT))
     return np.array(im, dtype=np.float32) / 255.0
 
 
