@@ -38,7 +38,7 @@ python inference_dfv.py \
     --depth \
     --egomotion false \
     --input_list_file /home/ubuntu/data/raw_data_KITTI/test_files_eigen.txt \
-    --output_dir /home/ubuntu/data/result_20201225_143940_1229test/ \
+    --output_dir /home/ubuntu/data/result_20201225_143940/ \
     --model_ckpt /home/ubuntu/data/kitti_experiment_checkpoint_20201225/model-143940
 ```
 
@@ -48,7 +48,7 @@ python inference_dfv.py \
     --file_extension png \
     --depth \
     --egomotion false \
-    --input_list_file /home/ubuntu/data/raw_data_KITTI/test_files_eigen.txt \
+    --input_list_file /home/ubuntu/data/raw_data_KITTI/test_files_eigen_gray.txt \
     --output_dir /home/ubuntu/data/result_20201228_14394/ \
     --model_ckpt /home/ubuntu/data/kitti_experiment_checkpoint_20201228/model-14394
 ```
@@ -74,7 +74,7 @@ python kitti_eval/eval_depth.py --kitti_dir=/home/ubuntu/data/raw_data_KITTI/ --
 
 
 ```shell
-python kitti_eval/eval_depth.py --kitti_dir=/home/ubuntu/data/raw_data_KITTI/ --pred_file=/home/ubuntu/data/result_20201225_143940_1229test/result.npy
+python kitti_eval/eval_depth.py --kitti_dir=/home/ubuntu/data/raw_data_KITTI/ --pred_file=/home/ubuntu/data/result_20201228_14394/result.npy
 ```
   
 ## Finetuning with the video taken in Saitama
