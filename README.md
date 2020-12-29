@@ -88,7 +88,7 @@ nohup python StereoAVIToPNG.py \
 ```
 
 ```
-nohuo python StereoAVIToPNG.py \
+nohup python StereoAVIToPNG.py \
 --path_avi /home/ubuntu/data/StereoVideo/V2-mv-20200716105152-ulrg.avi \
 --path_output_png /home/ubuntu/data/Sayama/all_video/video2top_png/ \
 --option top \
