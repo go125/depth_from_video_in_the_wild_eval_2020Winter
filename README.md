@@ -61,27 +61,10 @@ python inference_dfv.py \
 python kitti_eval/eval_depth.py --kitti_dir=/home/ubuntu/data/raw_data_KITTI/ --pred_file=/home/ubuntu/data/result_20201223_273486/result.npy
 ```
 
-- アスペクト比変更オプション不使用
 - abs_rel,     sq_rel,        rms,    log_rms,     d1_all,         a1,         a2,         a3,     scalor 
 - 0.1374,     0.9873,     5.5315,     0.2212,     0.0000,     0.8166,     0.9388,     0.9754 ,   12.3922
   - この出力は7月実行時と同じ結果である(このコードは過去のコードと等価)
   
-```shell
-python kitti_eval/eval_depth.py --kitti_dir=/home/ubuntu/data/raw_data_KITTI/ --pred_file=/home/ubuntu/data/result_20201225_143940/result.npy
-```
-
-- アスペクト比変更オプション不使用
-- abs_rel,     sq_rel,        rms,    log_rms,     d1_all,         a1,         a2,         a3,     scalor 
-- 0.1305,     0.9316,     5.3069,     0.2099,     0.0000,     0.8309,     0.9460,     0.9788 ,    8.1981 
-
-```shell
-python kitti_eval/eval_depth.py --kitti_dir=/home/ubuntu/data/raw_data_KITTI/ --pred_file=/home/ubuntu/data/result_20201225_143940_1229test/result.npy
-```
-
-- アスペクト比変更オプション使用
-- abs_rel,     sq_rel,        rms,    log_rms,     d1_all,         a1,         a2,         a3,     scalor 
-- 0.1324,     0.9724,     5.3728,     0.2126,     0.0000,     0.8290,     0.9444,     0.9781 ,    8.1621 
-
 ```shell
 python kitti_eval/eval_depth.py --kitti_dir=/home/ubuntu/data/raw_data_KITTI/ --pred_file=/home/ubuntu/data/result_20201228_14394/result.npy
 ```
