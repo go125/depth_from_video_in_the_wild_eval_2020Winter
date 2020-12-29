@@ -38,7 +38,7 @@ python inference_dfv.py \
     --depth \
     --egomotion false \
     --input_list_file /home/ubuntu/data/raw_data_KITTI/test_files_eigen.txt \
-    --output_dir /home/ubuntu/data/result_20201225_143940_1229test/ \
+    --output_dir /home/ubuntu/data/result_20201225_143940/ \
     --model_ckpt /home/ubuntu/data/kitti_experiment_checkpoint_20201225/model-143940
 ```
 
