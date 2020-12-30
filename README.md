@@ -88,6 +88,9 @@ python kitti_eval/eval_depth.py --kitti_dir=/home/ubuntu/data/raw_data_KITTI/ --
 ```shell
 python kitti_eval/eval_depth.py --kitti_dir=/home/ubuntu/data/raw_data_KITTI/ --pred_file=/home/ubuntu/data/result_20201228_86364/result.npy
 ```
+
+- abs_rel,     sq_rel,        rms,    log_rms,     d1_all,         a1,         a2,         a3,     scalor 
+- 0.1259,     1.0224,     5.6782,     0.1995,     0.0000,     0.8406,     0.9489,     0.9811 ,   15.8754
   
 ## Finetuning with the video taken in Saitama
 
