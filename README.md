@@ -195,6 +195,16 @@ nohup python MakeMask.py --base_path /home/ubuntu/data/Sayama/all_video_training
 --TEMP_DIR /home/ubuntu/data/Sayama/tmpdir_training &
 ```
 
+```script
+nohup python MakeMask.py --base_path /home/ubuntu/data/Sayama/all_video_training/ \
+--ROOT_DIR ../Mask_RCNN \
+--WIDTH 256 \
+--HEIGHT 128 \
+--OUTPUT_DIR /home/ubuntu/data/Sayama/training_data_128_256 \
+--TEMP_DIR /home/ubuntu/data/Sayama/tmpdir_training_128_256 &
+```
+
+
 ## 4. Training
 
 ```script
