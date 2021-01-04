@@ -2,6 +2,8 @@ import numpy as np
 import cv2
 import matplotlib.pyplot as plt
 
+# TODO この部分をaregparse化する
+
 save_path = '/home/ubuntu/data/Sayama/tmpdir/2020_08_04/video1top_png/image_02/data/'
 
 depth_map_dir = "/home/ubuntu/data/Sayama_202008/result_video1top_273486/"
