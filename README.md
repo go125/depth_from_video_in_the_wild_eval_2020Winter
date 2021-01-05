@@ -292,6 +292,20 @@ python inference_dfv.py \
     --model_ckpt /home/ubuntu/data/kitti_experiment_checkpoint_20200716/model-279296
 ```
 
+```shell
+python inference_dfv.py \
+    --img_height 128 \
+    --img_width 256 \
+    --logtostderr \
+    --file_extension png \
+    --depth \
+    --egomotion false \
+    --input_dir /home/ubuntu/data/Sayama/tmpdir_128_256/2020_08_04/video1top_png/image_02/data/ \
+    --output_dir /home/ubuntu/Sayama/result_video1top_150558_128_256/ \
+    --model_ckpt /home/ubuntu/data/kitti_experiment_checkpoint_20201228/model-150558
+```
+
+
 ### Getting Abs Rel Error
 
 以下2ファイルはステレオカメラ専用
@@ -312,6 +326,14 @@ python AbsRelError_NoScaleMatching.py \
 - abs_rel,     sq_rel,        rms,    log_rms,     d1_all,         a1,         a2,         a3,     scalor 
 - 0.4028,     5.3890,    12.5421,     0.5733,     0.0000,     0.1633,     0.4877,     0.7393 ,    9.1144
   - これは8月と同じ出力
+  
+```
+python AbsRelError.py \
+--save_path /home/ubuntu/data/Sayama/tmpdir_128_256/2020_08_04/video1top_png/image_02/data/ \
+--depth_map_dir /home/ubuntu/Sayama/result_video1top_150558_128_256/ \
+--ans_int_disp_map_dir /home/ubuntu/data/Sayama/tmpdir/2020_08_04/video1middle_png/image_02/data
+```
+
 
 ### Visualization
 
