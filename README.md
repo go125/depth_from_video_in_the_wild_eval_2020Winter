@@ -223,6 +223,15 @@ nohup python -m depth_from_video_in_the_wild.train \
 --train_steps=1000000 &
 ```
 
+```script
+nohup python -m depth_from_video_in_the_wild.train \
+--data_dir /home/ubuntu/data/Sayama/training_data_128_256 \
+--checkpoint_dir=/home/ubuntu/data/kitti_experiment_checkpoint_20201228 \
+--imagenet_ckpt=/home/ubuntu/data/ResNet18/model.ckpt \
+--train_steps=1000000 &
+```
+
+
 ## Evaluation
 
 ### Before fine tuning
