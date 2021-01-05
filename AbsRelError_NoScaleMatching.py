@@ -80,7 +80,8 @@ def calc_center(xmin=0, ymin=0, img_height=128, img_width=416, clip_height=128, 
 
 def abs_rel_error_single_image(i):
     pred_depth = np.load(depth_map_dir + file_names[i] + '.npy')
-    pred_depth = cv2.resize(pred_depth, (416, 128))
+    init_height, init_width = pred_depth.shape[:2]
+    pred_depth = cv2.resize(pred_depth, (init_width, init_height))
 
     ans_int_disp_map = draw_images_ans_int(file_names[i])
 
