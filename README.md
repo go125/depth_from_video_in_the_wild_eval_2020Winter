@@ -265,6 +265,13 @@ python AbsRelError.py
 - 0.2797,     3.7270,     9.6290,     0.3576,     0.0000,     0.5507,     0.8217,     0.9325 ,   14.2422
   - これは8月と同じ数値
 
+```
+python AbsRelError.py \
+--save_path /home/ubuntu/data/Sayama/tmpdir_128_256/2020_08_04/video1top_png/image_02/data/ \
+--depth_map_dir /home/ubuntu/Sayama/result_video1top_143940_128_256/ \
+--ans_int_disp_map_dir /home/ubuntu/data/Sayama/tmpdir/2020_08_04/video1middle_png/image_02/data
+```
+
 ### After fine tuning
 
 ### Getting Predicted Depth
