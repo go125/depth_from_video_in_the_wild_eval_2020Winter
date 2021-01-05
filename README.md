@@ -218,7 +218,7 @@ nohup python MakeMask.py --base_path /home/ubuntu/data/Sayama/all_video_training
 ```script
 nohup python -m depth_from_video_in_the_wild.train \
 --data_dir /home/ubuntu/data/Sayama/training_data \
---checkpoint_dir=/home/ubuntu/data/kitti_experiment_checkpoint_20201224 \
+--checkpoint_dir=/home/ubuntu/data/kitti_experiment_checkpoint_20201228 \
 --imagenet_ckpt=/home/ubuntu/data/ResNet18/model.ckpt \
 --train_steps=1000000 &
 ```
@@ -238,6 +238,19 @@ python inference_dfv.py \
     --input_dir /home/ubuntu/data/Sayama/tmpdir/2020_08_04/video1top_png/image_02/data/ \
     --output_dir /home/ubuntu/Sayama/result_video1top_273486/ \
     --model_ckpt /home/ubuntu/data/kitti_experiment_checkpoint_20200716/model-273486
+```
+
+```shell
+python inference_dfv.py \
+    --img_height 128 \
+    --img_width 256 \
+    --logtostderr \
+    --file_extension png \
+    --depth \
+    --egomotion false \
+    --input_dir /home/ubuntu/data/Sayama/tmpdir_128_256/2020_08_04/video1top_png/image_02/data/ \
+    --output_dir /home/ubuntu/Sayama/result_video1top_143940_128_256/ \
+    --model_ckpt /home/ubuntu/data/kitti_experiment_checkpoint_20201228/model-143940
 ```
 
 ### Getting Abs Rel Error
