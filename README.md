@@ -334,6 +334,9 @@ python AbsRelError.py \
 --ans_int_disp_map_dir /home/ubuntu/data/Sayama/tmpdir/2020_08_04/video1middle_png/image_02/data
 ```
 
+- abs_rel,     sq_rel,        rms,    log_rms,     d1_all,         a1,         a2,         a3,     scalor 
+- 0.3361,     6.3938,    12.2028,     0.4087,     0.0000,     0.5151,     0.7955,     0.9056 ,   15.1097
+
 
 ### Visualization
 
