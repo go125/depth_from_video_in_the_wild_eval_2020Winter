@@ -18,9 +18,9 @@ import pickle
 import argparse
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--save_path", help="Raw images",
+parser.add_argument("--save_path", help="Raw images dir",
                     default='/home/ubuntu/data/Sayama/tmpdir/2020_08_04/video1top_png/image_02/data/', type=str)
-parser.add_argument("--depth_map_dir", help="Depth maps (273486 = Before Fine Tuning, 279296 = After Fine Tuning)",
+parser.add_argument("--depth_map_dir", help="Depth maps dir",
                     default='/home/ubuntu/Sayama/result_video1top_273486/', type=str)
 parser.add_argument("--ans_int_disp_map_dir", help="Disparity map",
                     default="/home/ubuntu/data/Sayama/tmpdir/2020_08_04/video1middle_png/image_02/data", type=str)
