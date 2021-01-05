@@ -182,6 +182,14 @@ nohup python CropPNG.py --base_path /home/ubuntu/data/Sayama/all_video/ \
 --TEMP_DIR /home/ubuntu/data/Sayama/tmpdir &
 ```
 
+```script
+nohup python CropPNG.py --base_path /home/ubuntu/data/Sayama/all_video/ \
+--WIDTH 256 \
+--HEIGHT 128 \
+--OUTPUT_DIR /home/ubuntu/data/Sayama/out_128_256 \
+--TEMP_DIR /home/ubuntu/data/Sayama/tmpdir_128_256 &
+```
+
 ## 3 Use MakeMask.py
 - "all video_training" dir should include only "video2top_png" dir.
   - "video2top_png"に対してのみトレーニング用のマスクを生成
