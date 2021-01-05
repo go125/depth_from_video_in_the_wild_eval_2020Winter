@@ -276,7 +276,7 @@ python AbsRelError.py \
 
 - abs_rel,     sq_rel,        rms,    log_rms,     d1_all,         a1,         a2,         a3,     scalor 
 - 0.3176,     4.4600,    10.3351,     0.3938,     0.0000,     0.4659,     0.7819,     0.9178 ,   13.2683 
-  - AbsRelError.pyの誤りの可能性がある
+  - AbsRelError.pyの誤りの可能性が高い
 
 ### After fine tuning
 
