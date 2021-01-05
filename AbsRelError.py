@@ -72,6 +72,7 @@ def abs_rel_error_single_image(i):
     pred_depth = np.load(depth_map_dir + file_names[i] + '.npy')
     # TODO アスペクト比変更への対応
     pred_depth = cv2.resize(pred_depth, (416, 128))
+    # 次元数下げとサイズ保存を両立させること
 
     ans_int_disp_map = draw_images_ans_int(file_names[i])
 
