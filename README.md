@@ -274,6 +274,9 @@ python AbsRelError.py \
 --ans_int_disp_map_dir /home/ubuntu/data/Sayama/tmpdir_128_256/2020_08_04/video1middle_png/image_02/data
 ```
 
+- abs_rel,     sq_rel,        rms,    log_rms,     d1_all,         a1,         a2,         a3,     scalor 
+- 0.2853,     3.5981,     9.5108,     0.3669,     0.0000,     0.5333,     0.8103,     0.9268 ,   12.7202 
+
 ### After fine tuning
 
 ### Getting Predicted Depth
