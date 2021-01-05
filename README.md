@@ -271,12 +271,8 @@ python AbsRelError.py
 python AbsRelError.py \
 --save_path /home/ubuntu/data/Sayama/tmpdir_128_256/2020_08_04/video1top_png/image_02/data/ \
 --depth_map_dir /home/ubuntu/Sayama/result_video1top_143940_128_256/ \
---ans_int_disp_map_dir /home/ubuntu/data/Sayama/tmpdir/2020_08_04/video1middle_png/image_02/data
+--ans_int_disp_map_dir /home/ubuntu/data/Sayama/tmpdir_128_256/2020_08_04/video1middle_png/image_02/data
 ```
-
-- abs_rel,     sq_rel,        rms,    log_rms,     d1_all,         a1,         a2,         a3,     scalor 
-- 0.3176,     4.4600,    10.3351,     0.3938,     0.0000,     0.4659,     0.7819,     0.9178 ,   13.2683 
-  - AbsRelError.pyの誤りの可能性が高い
 
 ### After fine tuning
 
@@ -332,12 +328,8 @@ python AbsRelError_NoScaleMatching.py \
 python AbsRelError.py \
 --save_path /home/ubuntu/data/Sayama/tmpdir_128_256/2020_08_04/video1top_png/image_02/data/ \
 --depth_map_dir /home/ubuntu/Sayama/result_video1top_150558_128_256/ \
---ans_int_disp_map_dir /home/ubuntu/data/Sayama/tmpdir/2020_08_04/video1middle_png/image_02/data
+--ans_int_disp_map_dir /home/ubuntu/data/Sayama/tmpdir_128_256/2020_08_04/video1middle_png/image_02/data
 ```
-
-- abs_rel,     sq_rel,        rms,    log_rms,     d1_all,         a1,         a2,         a3,     scalor 
-- 0.3361,     6.3938,    12.2028,     0.4087,     0.0000,     0.5151,     0.7955,     0.9056 ,   15.1097
-
 
 ### Visualization
 
