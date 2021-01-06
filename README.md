@@ -74,6 +74,9 @@ python inference_dfv.py \
 python kitti_eval/eval_depth.py --kitti_dir=/home/ubuntu/data/raw_data_KITTI/ --pred_file=/home/ubuntu/data/result_20201228_57576/result.npy
 ```
 
+abs_rel,     sq_rel,        rms,    log_rms,     d1_all,         a1,         a2,         a3,     scalor 
+    0.1286,     1.0342,     5.7910,     0.2023,     0.0000,     0.8330,     0.9459,     0.9808 ,   15.3595
+
 ## Finetuning with the video taken in Saitama
 
 ## 1. Use StereoAVIToPNG.py
