@@ -71,7 +71,7 @@ python inference_dfv.py \
 ### Getting Abs Rel Error (KITTI)
 
 ```shell
-python kitti_eval/eval_depth.py --kitti_dir=/home/ubuntu/data/raw_data_KITTI/ --pred_file=/home/ubuntu/data/result_20201228_14394/result.npy
+python kitti_eval/eval_depth.py --kitti_dir=/home/ubuntu/data/raw_data_KITTI/ --pred_file=/home/ubuntu/data/result_20201228_28788/result.npy
 ```
 
 ## Finetuning with the video taken in Saitama
@@ -86,39 +86,7 @@ nohup python StereoAVIToPNG.py \
 --fps 10 &
 ```
 
-```
-nohup python StereoAVIToPNG.py \
---path_avi /home/ubuntu/data/StereoVideo/V2-mv-20200716103312-ulrg.avi \
---path_output_png /home/ubuntu/data/Sayama/all_video/video1middle_png/ \
---option middle \
---fps 10 &
-```
-
-```
-nohup python StereoAVIToPNG.py \
---path_avi /home/ubuntu/data/StereoVideo/V2-mv-20200716105152-ulrg.avi \
---path_output_png /home/ubuntu/data/Sayama/all_video/video2top_png/ \
---option top \
---fps 10 &
-```
-
-```
-nohup python StereoAVIToPNG.py \
---path_avi /home/ubuntu/data/StereoVideo/V2-mv-20200716105152-ulrg.avi \
---path_output_png /home/ubuntu/data/Sayama/all_video/video2middle_png/ \
---option middle \
---fps 10 &
-```
-
 ## 2 Use CropPNG.py
-
-```script
-nohup python CropPNG.py --base_path /home/ubuntu/data/Sayama/all_video/ \
---WIDTH 416 \
---HEIGHT 128 \
---OUTPUT_DIR /home/ubuntu/data/Sayama/out \
---TEMP_DIR /home/ubuntu/data/Sayama/tmpdir &
-```
 
 ```script
 nohup python CropPNG.py --base_path /home/ubuntu/data/Sayama/all_video/ \
@@ -131,15 +99,6 @@ nohup python CropPNG.py --base_path /home/ubuntu/data/Sayama/all_video/ \
 ## 3 Use MakeMask.py
 - "all video_training" dir should include only "video2top_png" dir.
   - "video2top_png"に対してのみトレーニング用のマスクを生成
-
-```script
-nohup python MakeMask.py --base_path /home/ubuntu/data/Sayama/all_video_training/ \
---ROOT_DIR ../Mask_RCNN \
---WIDTH 416 \
---HEIGHT 128 \
---OUTPUT_DIR /home/ubuntu/data/Sayama/training_data \
---TEMP_DIR /home/ubuntu/data/Sayama/tmpdir_training &
-```
 
 ```script
 nohup python MakeMask.py --base_path /home/ubuntu/data/Sayama/all_video_training/ \
