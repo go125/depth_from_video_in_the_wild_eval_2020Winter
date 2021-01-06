@@ -57,17 +57,6 @@ nohup python -m depth_from_video_in_the_wild.train \
 
 ```shell
 python inference_dfv.py \
-    --logtostderr \
-    --file_extension png \
-    --depth \
-    --egomotion false \
-    --input_list_file /home/ubuntu/data/raw_data_KITTI/test_files_eigen.txt \
-    --output_dir /home/ubuntu/data/result_20201225_143940_1229test/ \
-    --model_ckpt /home/ubuntu/data/kitti_experiment_checkpoint_20201225/model-143940
-```
-
-```shell
-python inference_dfv.py \
     --img_height 128 \
     --img_width 256 \
     --logtostderr \
@@ -75,20 +64,12 @@ python inference_dfv.py \
     --depth \
     --egomotion false \
     --input_list_file /home/ubuntu/data/raw_data_KITTI/test_files_eigen_gray.txt \
-    --output_dir /home/ubuntu/data/result_20201228_14394/ \
-    --model_ckpt /home/ubuntu/data/kitti_experiment_checkpoint_20201228/model-14394
+    --output_dir /home/ubuntu/data/result_20201228_28788/ \
+    --model_ckpt /home/ubuntu/data/kitti_experiment_checkpoint_20201228/model-28788
 ```
 
 ### Getting Abs Rel Error (KITTI)
 
-```shell
-python kitti_eval/eval_depth.py --kitti_dir=/home/ubuntu/data/raw_data_KITTI/ --pred_file=/home/ubuntu/data/result_20201223_273486/result.npy
-```
-
-- abs_rel,     sq_rel,        rms,    log_rms,     d1_all,         a1,         a2,         a3,     scalor 
-- 0.1374,     0.9873,     5.5315,     0.2212,     0.0000,     0.8166,     0.9388,     0.9754 ,   12.3922
-  - この出力は7月実行時と同じ結果である(このコードは過去のコードと等価)
-  
 ```shell
 python kitti_eval/eval_depth.py --kitti_dir=/home/ubuntu/data/raw_data_KITTI/ --pred_file=/home/ubuntu/data/result_20201228_14394/result.npy
 ```
@@ -190,17 +171,6 @@ nohup python -m depth_from_video_in_the_wild.train \
 
 ```shell
 python inference_dfv.py \
-    --logtostderr \
-    --file_extension png \
-    --depth \
-    --egomotion false \
-    --input_dir /home/ubuntu/data/Sayama/tmpdir/2020_08_04/video1top_png/image_02/data/ \
-    --output_dir /home/ubuntu/Sayama/result_video1top_273486/ \
-    --model_ckpt /home/ubuntu/data/kitti_experiment_checkpoint_20200716/model-273486
-```
-
-```shell
-python inference_dfv.py \
     --img_height 128 \
     --img_width 256 \
     --logtostderr \
@@ -213,16 +183,6 @@ python inference_dfv.py \
 ```
 
 ### Getting Abs Rel Error
-
-下記ファイルはステレオカメラ専用
-
-```
-python AbsRelError.py
-```
-
-- abs_rel,     sq_rel,        rms,    log_rms,     d1_all,         a1,         a2,         a3,     scalor 
-- 0.2797,     3.7270,     9.6290,     0.3576,     0.0000,     0.5507,     0.8217,     0.9325 ,   14.2422
-  - これは8月と同じ数値
 
 ```
 python AbsRelError.py \
@@ -240,17 +200,6 @@ python AbsRelError.py \
 
 ```shell
 python inference_dfv.py \
-    --logtostderr \
-    --file_extension png \
-    --depth \
-    --egomotion false \
-    --input_dir /home/ubuntu/data/Sayama/tmpdir/2020_08_04/video1top_png/image_02/data/ \
-    --output_dir /home/ubuntu/Sayama/result_video1top_279296/ \
-    --model_ckpt /home/ubuntu/data/kitti_experiment_checkpoint_20200716/model-279296
-```
-
-```shell
-python inference_dfv.py \
     --img_height 128 \
     --img_width 256 \
     --logtostderr \
@@ -265,25 +214,6 @@ python inference_dfv.py \
 
 ### Getting Abs Rel Error
 
-以下2ファイルはステレオカメラ専用
-
-```
-python AbsRelError.py \
---depth_map_dir /home/ubuntu/Sayama/result_video1top_279296/
-```
-
-- abs_rel,     sq_rel,        rms,    log_rms,     d1_all,         a1,         a2,         a3,     scalor 
-- 0.2258,     3.0248,     8.5670,     0.3028,     0.0000,     0.6844,     0.8930,     0.9543 ,   14.0935 
-  - これは8月と同じ出力
-
-```
-python AbsRelError_NoScaleMatching.py \
---depth_map_dir /home/ubuntu/Sayama/result_video1top_279296/
-```
-- abs_rel,     sq_rel,        rms,    log_rms,     d1_all,         a1,         a2,         a3,     scalor 
-- 0.4028,     5.3890,    12.5421,     0.5733,     0.0000,     0.1633,     0.4877,     0.7393 ,    9.1144
-  - これは8月と同じ出力
-  
 ```
 python AbsRelError.py \
 --save_path /home/ubuntu/data/Sayama/tmpdir_128_256/2020_08_04/video1top_png/image_02/data/ \
@@ -293,6 +223,17 @@ python AbsRelError.py \
 
 - abs_rel,     sq_rel,        rms,    log_rms,     d1_all,         a1,         a2,         a3,     scalor 
 - 0.2465,     3.6083,     9.2301,     0.3344,     0.0000,     0.6564,     0.8658,     0.9395 ,   14.5235
+
+### Getting Abs Rel Error (加速度センサ利用)
+
+```
+python AbsRelError_NoScaleMatching.py \
+--depth_map_dir /home/ubuntu/Sayama/result_video1top_279296/
+```
+- abs_rel,     sq_rel,        rms,    log_rms,     d1_all,         a1,         a2,         a3,     scalor 
+- 0.4028,     5.3890,    12.5421,     0.5733,     0.0000,     0.1633,     0.4877,     0.7393 ,    9.1144
+  - これは8月と同じ出力
+  
 
 ### Visualization
 
