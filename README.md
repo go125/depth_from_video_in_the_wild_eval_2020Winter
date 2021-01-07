@@ -5,8 +5,6 @@
 
 - [ImageNet Checkpoint Preparation](https://github.com/go125/resnet-18-tensorflow)
 
-### Input example (KITTI)
-
 ```script
 nohup python GenDataKITTI_gray.py \
 --HEIGHT 128 \
@@ -42,7 +40,7 @@ python inference_dfv.py \
     --model_ckpt /home/ubuntu/data/kitti_experiment_checkpoint_20201228/model-143940
 ```
 
-### Getting Abs Rel Error (KITTI)
+## Getting Abs Rel Error (KITTI)
 
 ```shell
 python kitti_eval/eval_depth.py --kitti_dir=/home/ubuntu/data/raw_data_KITTI/ --pred_file=/home/ubuntu/data/result_20201228_143940/result.npy
@@ -102,9 +100,9 @@ nohup python -m depth_from_video_in_the_wild.train \
 
 ## Evaluation
 
-### Before fine tuning
+## Before fine tuning
 
-### Getting Predicted Depth
+## Getting Predicted Depth
 
 ```shell
 python inference_dfv.py \
@@ -119,7 +117,7 @@ python inference_dfv.py \
     --model_ckpt /home/ubuntu/data/kitti_experiment_checkpoint_20201228/model-143940
 ```
 
-### Getting Abs Rel Error
+## Getting Abs Rel Error
 
 ```
 python AbsRelError.py \
@@ -131,9 +129,9 @@ python AbsRelError.py \
 - abs_rel,     sq_rel,        rms,    log_rms,     d1_all,         a1,         a2,         a3,     scalor 
 - 0.2853,     3.5981,     9.5108,     0.3669,     0.0000,     0.5333,     0.8103,     0.9268 ,   12.7202 
 
-### After fine tuning
+## After fine tuning
 
-### Getting Predicted Depth
+## Getting Predicted Depth
 
 ```shell
 python inference_dfv.py \
@@ -149,7 +147,7 @@ python inference_dfv.py \
 ```
 
 
-### Getting Abs Rel Error
+## Getting Abs Rel Error
 
 ```
 python AbsRelError.py \
@@ -161,7 +159,7 @@ python AbsRelError.py \
 - abs_rel,     sq_rel,        rms,    log_rms,     d1_all,         a1,         a2,         a3,     scalor 
 - 0.2465,     3.6083,     9.2301,     0.3344,     0.0000,     0.6564,     0.8658,     0.9395 ,   14.5235
 
-### Getting Abs Rel Error (加速度センサ利用)
+## Getting Abs Rel Error (加速度センサ利用)
 
 ```
 python AbsRelError_NoScaleMatching.py \
@@ -172,7 +170,7 @@ python AbsRelError_NoScaleMatching.py \
   - これは8月と同じ出力
   
 
-### Visualization
+## Visualization
 
 ```
 python Visualization.py 
