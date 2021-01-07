@@ -3,7 +3,7 @@
 
 ## Data Preparation (KITTI)
 
-- [ImageNet Checkpoint Preparation](https://github.com/dalgu90/resnet-18-tensorflow)
+- [ImageNet Checkpoint Preparation](https://github.com/go125/resnet-18-tensorflow)
 
 ### Input example (KITTI)
 
