@@ -7,8 +7,6 @@
 
 ### Input example (KITTI)
 
-- 白黒で訓練
-
 ```script
 nohup python GenDataKITTI_gray.py \
 --HEIGHT 128 \
@@ -17,19 +15,7 @@ nohup python GenDataKITTI_gray.py \
 --TEMP_DIR /home/ubuntu/data/train_data_example_all_20201228/ &
 ```
 
-- カラーで訓練
-```script
-nohup python GenDataKITTI.py \
---HEIGHT 128 \
---WIDTH 256 \
---OUTPUT_DIR /home/ubuntu/data/kitti_result_all_20210104 \
---TEMP_DIR /home/ubuntu/data/train_data_example_all_20210104/ &
-```
-
 ## Train example (KITTI)
-- 白黒で訓練
-- 下記データでAbs Rel Errorが0.1374まで下がるか確認
-  - 成功
 
 ```script
 nohup python -m depth_from_video_in_the_wild.train \
@@ -37,18 +23,6 @@ nohup python -m depth_from_video_in_the_wild.train \
 --img_width 256 \
 --data_dir /home/ubuntu/data/kitti_result_all_20201228 \
 --checkpoint_dir=/home/ubuntu/data/kitti_experiment_checkpoint_20201228 \
---imagenet_ckpt=/home/ubuntu/data/ResNet18/model.ckpt \
---train_steps=1000000 &
-```
-
-- カラーで訓練
-
-```script
-nohup python -m depth_from_video_in_the_wild.train \
---img_height 128 \
---img_width 256 \
---data_dir /home/ubuntu/data/kitti_result_all_20210104 \
---checkpoint_dir=/home/ubuntu/data/kitti_experiment_checkpoint_20210104 \
 --imagenet_ckpt=/home/ubuntu/data/ResNet18/model.ckpt \
 --train_steps=1000000 &
 ```
