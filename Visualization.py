@@ -1,25 +1,38 @@
 import numpy as np
 import cv2
 import matplotlib.pyplot as plt
+import argparse
 
-# TODO この部分をaregparse化する
+parser = argparse.ArgumentParser()
+parser.add_argument("--save_path", help="Raw images dir",
+                    default='/home/ubuntu/data/Sayama/tmpdir/2020_08_04/video1top_png/image_02/data/', type=str)
+parser.add_argument("--depth_map_dir", help="Depth maps dir",
+                    default='/home/ubuntu/Sayama/result_video1top_273486/', type=str)
+parser.add_argument("--ans_int_disp_map_dir", help="Disparity map",
+                    default="/home/ubuntu/data/Sayama/tmpdir/2020_08_04/video1middle_png/image_02/data", type=str)
+parser.add_argument("--min_depth", help="Abs Rel Error Calculation Settings.", default=5, type=int)
+parser.add_argument("--max_depth", help="Abs Rel Error Calculation Settings.", default=80, type=int)
+parser.add_argument("--bf", help="Stereo Camera Parameters.", default=109.65, type=float)
+parser.add_argument("--d_inf", help="Stereo Camera Parameters.", default=2.67, type=float)
+parser.add_argument("--file_name", help="file_name",
+                    default="frame_000940.png", type=str)
 
-save_path = '/home/ubuntu/data/Sayama/tmpdir/2020_08_04/video1top_png/image_02/data/'
+args = parser.parse_args()
 
-depth_map_dir = "/home/ubuntu/data/Sayama_202008/result_video1top_273486/"
+save_path = args.save_path
+depth_map_dir = args.depth_map_dir
+ans_int_disp_map_dir = args.ans_int_disp_map_dir
+file_name = args.file_name
+min_depth = args.min_depth
+max_depth = args.max_depth
+bf = args.bf
+d_inf = args.d_inf
 
-ans_int_disp_map_dir = "/home/ubuntu/data/Sayama/tmpdir/2020_08_04/video1middle_png/image_02/data"
-
-file_names = ["frame_000940.png"]
-
-file_names_2 = ["frame_000940"]
-
-# Parameters for Abs Rel Error Calculation
-
-min_depth = 5
-max_depth = 80
-bf = 109.65
-d_inf = 2.67
+# 可視化するファイル
+file_names = []
+file_names.append(file_name)
+file_names_2 = []
+file_names.append(file_name.split(".")[0])
 
 # Check File Content
 
