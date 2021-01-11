@@ -170,6 +170,9 @@ python AbsRelError_NoScaleMatching.py \
 --ans_int_disp_map_dir /home/ubuntu/data/Sayama/tmpdir_128_256/2020_08_04/video1middle_png/image_02/data
 ```
 
+- abs_rel,     sq_rel,        rms,    log_rms,     d1_all,         a1,         a2,         a3,     scalor 
+- 0.6569,    14.5743,    22.5303,     1.4669,     0.0000,     0.0662,     0.1630,     0.2452 ,    1.0000 
+ 
 
 ## Getting Abs Rel Error (加速度センサ利用)
 
