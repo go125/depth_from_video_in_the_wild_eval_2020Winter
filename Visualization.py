@@ -31,6 +31,7 @@ d_inf = args.d_inf
 # 可視化するファイル
 file_names = []
 file_names.append(file_name)
+print(file_name.split(".")[0])
 file_names_2 = []
 file_names.append(file_name.split(".")[0])
 
