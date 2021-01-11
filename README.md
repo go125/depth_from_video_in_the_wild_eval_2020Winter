@@ -159,6 +159,18 @@ python AbsRelError.py \
 - abs_rel,     sq_rel,        rms,    log_rms,     d1_all,         a1,         a2,         a3,     scalor 
 - 0.2465,     3.6083,     9.2301,     0.3344,     0.0000,     0.6564,     0.8658,     0.9395 ,   14.5235
 
+
+
+## Getting Abs Rel Error (スケール合わせ不実施)
+
+```
+python AbsRelError_NoScaleMatching.py \
+--save_path /home/ubuntu/data/Sayama/tmpdir_128_256/2020_08_04/video1top_png/image_02/data/ \
+--depth_map_dir /home/ubuntu/Sayama/result_video1top_150558_128_256/ \
+--ans_int_disp_map_dir /home/ubuntu/data/Sayama/tmpdir_128_256/2020_08_04/video1middle_png/image_02/data
+```
+
+
 ## Getting Abs Rel Error (加速度センサ利用)
 
 ```
@@ -167,6 +179,9 @@ python AbsRelError_NoScaleMatching.py \
 --depth_map_dir /home/ubuntu/Sayama/result_video1top_150558_128_256/ \
 --ans_int_disp_map_dir /home/ubuntu/data/Sayama/tmpdir_128_256/2020_08_04/video1middle_png/image_02/data
 ```
+
+- abs_rel,     sq_rel,        rms,    log_rms,     d1_all,         a1,         a2,         a3,     scalor 
+- 0.3831,     6.7716,    11.9421,     0.4545,     0.0000,     0.4083,     0.6868,     0.8542 ,   13.7007 
 
 
 ## Visualization
