@@ -161,7 +161,7 @@ python AbsRelError.py \
 
 
 
-## Getting Abs Rel Error (スケール合わせ不実施)
+## Getting Abs Rel Error (With no scale matching)
 
 ```
 python AbsRelError_NoScaleMatching.py \
@@ -174,7 +174,7 @@ python AbsRelError_NoScaleMatching.py \
 - 0.6569,    14.5743,    22.5303,     1.4669,     0.0000,     0.0662,     0.1630,     0.2452 ,    1.0000 
  
 
-## Getting Abs Rel Error (加速度センサ利用)
+## Getting Abs Rel Error (Scale Matching with acceleration sensor)
 
 ```
 python AbsRelError_NoScaleMatching.py \
