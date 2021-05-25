@@ -74,7 +74,7 @@ nohup python CropPNG.py --base_path /home/ubuntu/data/Sayama/all_video/ \
 
 ## 3 Use MakeMask.py
 - "all video_training" dir should include only "video2top_png" dir.
-  - Make trainin mask for images only in "video2top_png" dir.
+  - Make training mask for images only in "video2top_png" dir.
 
 ```script
 nohup python MakeMask.py --base_path /home/ubuntu/data/Sayama/all_video_training/ \
