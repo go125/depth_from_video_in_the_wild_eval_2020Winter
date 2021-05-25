@@ -4,6 +4,7 @@
 ## Data Preparation (KITTI)
 
 - [ImageNet Checkpoint Preparation](https://github.com/go125/resnet-18-tensorflow)
+- This code requires [MaskRCNN](https://github.com/matterport/Mask_RCNN) in the same dir.
 
 ```script
 nohup python GenDataKITTI_gray.py \
