@@ -3,7 +3,6 @@
 
 ## Data Preparation (KITTI)
 
-- [ImageNet Checkpoint Preparation](https://github.com/go125/resnet-18-tensorflow)
 - GenDataKITTI_gray.py requires [MaskRCNN](https://github.com/matterport/Mask_RCNN) in the same dir.
 
 ```script
@@ -15,6 +14,8 @@ nohup python GenDataKITTI_gray.py \
 ```
 
 ## Train example (KITTI)
+
+- [ImageNet Checkpoint Preparation](https://github.com/go125/resnet-18-tensorflow)
 
 ```script
 nohup python -m depth_from_video_in_the_wild.train \
